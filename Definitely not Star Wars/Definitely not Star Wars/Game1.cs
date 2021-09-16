@@ -12,9 +12,17 @@ namespace Definitely_not_Star_Wars
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Texture2D playerImg;
+        Player playerObj;
+        int windowW = 500, windowH = 700;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = windowW;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = windowH;   // set this value to the desired height of your window
+            graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
 
@@ -40,6 +48,16 @@ namespace Definitely_not_Star_Wars
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+
+            //Load Player IMG
+            playerImg = Content.Load<Texture2D>("PlayerSprite");
+
+            playerObj = new Player(playerImg, new Vector2(windowW/2-20, windowH-60), new Vector2(50f, 50f))
+            {
+
+               
+
+            };
             // TODO: use this.Content to load your game content here
         }
 
@@ -63,7 +81,7 @@ namespace Definitely_not_Star_Wars
                 Exit();
 
             // TODO: Add your update logic here
-
+            playerObj.Update();
             base.Update(gameTime);
         }
 
@@ -75,7 +93,12 @@ namespace Definitely_not_Star_Wars
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+
+            playerObj.Draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
