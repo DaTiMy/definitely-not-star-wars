@@ -16,6 +16,7 @@ namespace Definitely_not_Star_Wars
         {
             using (var game = new Game1())
                 game.Run();
+            
         }
     }
 #endif
