@@ -41,6 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Content\Input.cs" />
+    <Compile Include="Content\Sprite.cs" />
     <Compile Include="Content\Player.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />

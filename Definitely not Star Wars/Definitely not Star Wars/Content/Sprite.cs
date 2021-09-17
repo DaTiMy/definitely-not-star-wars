@@ -13,13 +13,14 @@ namespace Definitely_not_Star_Wars
 
         public Vector2 Position;
         public Vector2 Velocity;
+        public float w, h;
         public Color SColor = Color.White;
         public float Speed;
         public Input Input;
 
         public Rectangle Rectangle
         {
-            get { return new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height); }
+            get { return new Rectangle((int)Position.X, (int)Position.Y, (int)w, (int)h); }
 
         }
         //test
@@ -36,7 +37,7 @@ namespace Definitely_not_Star_Wars
         public virtual void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(_texture, Position, SColor);
+            spriteBatch.Draw(_texture, Rectangle, SColor);
         }
 
         #region Collision

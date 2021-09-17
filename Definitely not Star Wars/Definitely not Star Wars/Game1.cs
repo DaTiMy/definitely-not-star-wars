@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -12,6 +13,7 @@ namespace Definitely_not_Star_Wars
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        private List<Sprite> _sprites;
         Texture2D playerImg;
         Player playerObj;
         int windowW = 800, windowH = 1000;
@@ -51,13 +53,29 @@ namespace Definitely_not_Star_Wars
 
             //Load Player IMG
             playerImg = Content.Load<Texture2D>("PlayerSprite");
-
-            playerObj = new Player(playerImg, new Vector2(windowW/2-30, windowH-100), new Vector2(100f, 100f))
+            _sprites = new List<Sprite>()
             {
 
-               
+                new Player(playerImg)
+                {
+                    Input = new Input()
+                    {
+                        Left = Keys.A,
+                        Right = Keys.D,
+                        Up = Keys.W,
+                        Down = Keys.S,
 
+                    },
+                    Position = new Vector2(windowW / 2-25 , windowH -80),
+                    SColor = Color.White,
+                    Speed = 8f,
+                    w = 80f,
+                    h = 80f
+
+
+                }
             };
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -81,7 +99,10 @@ namespace Definitely_not_Star_Wars
                 Exit();
 
             // TODO: Add your update logic here
-            playerObj.Update();
+            foreach (var sprite in _sprites)
+            {
+                sprite.Update(gameTime, _sprites);
+            }
             base.Update(gameTime);
         }
 
@@ -96,7 +117,10 @@ namespace Definitely_not_Star_Wars
             spriteBatch.Begin();
 
 
-            playerObj.Draw(spriteBatch);
+            foreach (var sprite in _sprites)
+            {
+                sprite.Draw(spriteBatch);
+            }
 
             spriteBatch.End();
 
