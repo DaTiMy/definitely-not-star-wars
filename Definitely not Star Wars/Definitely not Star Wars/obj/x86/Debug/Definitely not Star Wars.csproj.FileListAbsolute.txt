@@ -16,9 +16,9 @@ C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csprojAssemblyReference.cache
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csproj.CoreCompileInputs.cache
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csproj.CopyComplete
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.exe
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.pdb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\PlayerSprite.xnb
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csproj.AssemblyReference.cache
