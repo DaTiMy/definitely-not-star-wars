@@ -11,7 +11,7 @@ namespace Definitely_not_Star_Wars
     class TieFighter : Sprite
     {
         
-        public TieFighter(Texture2D texture) : base(texture)
+        public TieFighter(Texture2D texture,string name) : base(texture, name)
         {
             this.Speed = 3f;
             
@@ -28,8 +28,15 @@ namespace Definitely_not_Star_Wars
                 }
                 if (this.Rectangle.Intersects(sprite.Rectangle))
                 {
+                    if (sprite.Name == "PBullet")
+                    {
+                        Game1._sprites.Remove(sprite);
+                    }
                     Game1._sprites.Remove(this);
                 }
+              
+                
+                
                 if (this.Position.Y > 900)
                 {
                     Game1._sprites.Remove(this);

@@ -67,7 +67,7 @@ namespace Definitely_not_Star_Wars
             level1 = new Level(tieFighterImg);
 
             // Player Load
-            _sprites = new List<Sprite>(){new Player(playerImg)
+            _sprites = new List<Sprite>(){new Player(playerImg, "Player")
             {
                 Input = new Input()
                 {

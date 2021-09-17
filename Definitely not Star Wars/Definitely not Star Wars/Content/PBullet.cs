@@ -10,7 +10,7 @@ namespace Definitely_not_Star_Wars
 {
     class PBullet : Sprite
     {
-        public PBullet(Texture2D texture): base(texture) {
+        public PBullet(Texture2D texture, string name): base(texture, name) {
 
             this.Speed = 10f;
         }
@@ -20,10 +20,21 @@ namespace Definitely_not_Star_Wars
 
             Position += Velocity;
 
-            if (this.Position.Y < 1)
+            foreach (var sprite in sprites.ToArray())
             {
-                Game1._sprites.Remove(this);
+                if (sprite == this)
+                {
+                    continue;
+                }
+                if (this.Position.Y < 1)
+                {
+                    Game1._sprites.Remove(this);
+                }
+                
             }
+
+
+                
         }
         public void move()
         {

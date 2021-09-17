@@ -20,11 +20,19 @@ namespace Definitely_not_Star_Wars
         public float rotation;
         static int sid = 0;
         int id;
+        string name;
         //ID vergabe
         public int Id
         {
             get { return id; }
             set { id = value; }
+        }
+        public string Name
+        {
+            get { return name; }
+            set { if (value != null)
+                { name = value; }
+                        }
         }
         public Rectangle Rectangle
         {
@@ -32,11 +40,12 @@ namespace Definitely_not_Star_Wars
 
         }
         //test
-        public Sprite(Texture2D texture)
+        public Sprite(Texture2D texture, string name)
         {
             _texture = texture;
             Id = sid + 1;
             sid++;
+            Name = name;
         }
 
         public virtual void Update(GameTime gameTime, List<Sprite> sprites)
