@@ -39,13 +39,7 @@ namespace Definitely_not_Star_Wars
                 h = 80f,
 
             });
-            Game1._sprites.Add(new TieFighter(triple, "Triple")
-            {
-                Position = new Vector2(Game1.windowW / 2 - 0, Game1.windowH - 500),
-                w = 80f,
-                h = 80f,
-
-            });
+            
 
         }
 
@@ -71,6 +65,14 @@ namespace Definitely_not_Star_Wars
                 Game1._sprites.Add(new TieFighter(tieFighterImg, "Tie-Fighter")
                 {
                     Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 500),
+                    w = 80f,
+                    h = 80f,
+
+                });
+
+                Game1._sprites.Add(new Triple(triple, "Triple")
+                {
+                    Position = new Vector2(Game1.windowW / 2 - 0, Game1.windowH - 800),
                     w = 80f,
                     h = 80f,
 

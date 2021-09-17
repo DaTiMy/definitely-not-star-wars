@@ -90,6 +90,7 @@ namespace Definitely_not_Star_Wars
                     if (sprite.Name == "Triple")
                     {
                         tripleTime = Triple.tripletime;
+
                         Game1._sprites.Remove(sprite);
                         
                     }
