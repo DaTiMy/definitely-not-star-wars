@@ -18,7 +18,14 @@ namespace Definitely_not_Star_Wars
         public float Speed;
         public Input Input;
         public float rotation;
-
+        static int sid = 0;
+        int id;
+        //ID vergabe
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         public Rectangle Rectangle
         {
             get { return new Rectangle((int)Position.X, (int)Position.Y, (int)w, (int)h); }
@@ -28,6 +35,8 @@ namespace Definitely_not_Star_Wars
         public Sprite(Texture2D texture)
         {
             _texture = texture;
+            Id = sid + 1;
+            sid++;
         }
 
         public virtual void Update(GameTime gameTime, List<Sprite> sprites)

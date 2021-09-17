@@ -10,9 +10,10 @@ namespace Definitely_not_Star_Wars
 {
     class TieFighter : Sprite
     {
+        
         public TieFighter(Texture2D texture) : base(texture)
         {
-            this.Speed = 5;
+            this.Speed = 0.02f;
             
         }
         public override void Update(GameTime gameTime, List<Sprite> sprites)

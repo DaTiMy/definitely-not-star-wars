@@ -21,7 +21,8 @@ namespace Definitely_not_Star_Wars
         Level level1;
         Texture2D tieFighterImg;
         Player playerObj;
-
+        float currentTime;
+       
 
         public static int windowW = 800, windowH = 1000;
 
@@ -107,7 +108,7 @@ namespace Definitely_not_Star_Wars
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            Debug.WriteLine(gameTime.ElapsedGameTime.TotalSeconds);
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -117,8 +118,9 @@ namespace Definitely_not_Star_Wars
                 sprite.Update(gameTime, _sprites);
                 
             }
-          
-            level1.Update(gameTime);
+            currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+           
+            level1.Update(currentTime);
             base.Update(gameTime);
         }
 

@@ -32,20 +32,27 @@ namespace Definitely_not_Star_Wars
                 h = 80f,
 
             });
+            Game1._sprites.Add(new TieFighter(tieFighterImg)
+            {
+                Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 500),
+                w = 80f,
+                h = 80f,
+
+            });
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(float time)
         {
-            if (gameTime.ElapsedGameTime.TotalSeconds == 3)
+            
+            if (time > 4 && time < 4.02)
             {
-                Game1._sprites.Add(new TieFighter(tieFighterImg)
-                {
-                    Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 600),
-                    w = 80f,
-                    h = 80f,
-
-                });
+                var item = Game1._sprites.Find(x => x.Id == 2);
+                Game1._sprites.Remove(item);
+                
             }
+            
+
+
         }
 
         
