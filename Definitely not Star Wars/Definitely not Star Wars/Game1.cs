@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Definitely_not_Star_Wars
 {
@@ -14,6 +15,8 @@ namespace Definitely_not_Star_Wars
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        Song bgm;
 
         public static List<Sprite> _sprites;
         public static List<Sprite> _hp;
@@ -69,8 +72,10 @@ namespace Definitely_not_Star_Wars
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
             heart = Content.Load<Texture2D>("Heart");
             triple = Content.Load<Texture2D>("TripleshotPowerUp");
+            bgm = Content.Load<Song>("bgm");
             level1 = new Level(tieFighterImg, triple);
-
+            MediaPlayer.Volume = 0.1F;
+            MediaPlayer.Play(bgm);
             playerObj = new Player(playerImg, "Player")
             {
                 Input = new Input()
