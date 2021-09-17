@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,11 +15,15 @@ namespace Definitely_not_Star_Wars
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private List<Sprite> _sprites;
+        public static List<Sprite> _sprites;
         Texture2D playerImg;
+
+        Level level1;
         Texture2D tieFighterImg;
         Player playerObj;
-        int windowW = 800, windowH = 1000;
+
+
+        public static int windowW = 800, windowH = 1000;
 
 
         public Game1()
@@ -55,37 +61,33 @@ namespace Definitely_not_Star_Wars
             //Load Player IMG
             playerImg = Content.Load<Texture2D>("PlayerSprite");
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
-            _sprites = new List<Sprite>()
+            level1 = new Level(tieFighterImg);
+            
+            // Player Load
+            _sprites = new List<Sprite>(){new Player(playerImg)
             {
-
-                new Player(playerImg)
+                Input = new Input()
                 {
-                    Input = new Input()
-                    {
-                        Left = Keys.A,
-                        Right = Keys.D,
-                        Up = Keys.W,
-                        Down = Keys.S,
-
-                    },
-                    Position = new Vector2(windowW / 2-25 , windowH -80),
-                    SColor = Color.White,
-                    Speed = 8f,
-                    w = 80f,
-                    h = 80f
-
+                    Left = Keys.A,
+                    Right = Keys.D,
+                    Up = Keys.W,
+                    Down = Keys.S,
 
                 },
-                new TieFighter(tieFighterImg)
-                {
-                    Position = new Vector2(windowW/2-25,windowH-400),
-                    w = 80f,
-                    h = 80f,
-                    
-                }
-               
+                Position = new Vector2(windowW / 2 - 25, windowH - 80),
+                SColor = Color.White,
+                Speed = 8f,
+                w = 80f,
+                h = 80f
+
+           }
             };
-            
+            level1.AddEnemy();
+           
+
+
+
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -105,6 +107,7 @@ namespace Definitely_not_Star_Wars
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            Debug.WriteLine(gameTime.ElapsedGameTime.TotalSeconds);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -112,7 +115,10 @@ namespace Definitely_not_Star_Wars
             foreach (var sprite in _sprites)
             {
                 sprite.Update(gameTime, _sprites);
+                
             }
+          
+            level1.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -131,6 +137,8 @@ namespace Definitely_not_Star_Wars
             {
                 sprite.Draw(spriteBatch);
             }
+            
+
 
             spriteBatch.End();
 
