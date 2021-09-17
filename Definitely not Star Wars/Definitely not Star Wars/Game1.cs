@@ -15,6 +15,7 @@ namespace Definitely_not_Star_Wars
 
         private List<Sprite> _sprites;
         Texture2D playerImg;
+        Texture2D tieFighterImg;
         Player playerObj;
         int windowW = 800, windowH = 1000;
 
@@ -53,6 +54,7 @@ namespace Definitely_not_Star_Wars
 
             //Load Player IMG
             playerImg = Content.Load<Texture2D>("PlayerSprite");
+            tieFighterImg = Content.Load<Texture2D>("TieFighter");
             _sprites = new List<Sprite>()
             {
 
@@ -73,7 +75,12 @@ namespace Definitely_not_Star_Wars
                     h = 80f
 
 
+                },
+                new TieFighter(tieFighterImg, new Vector2(windowW/2-25,windowH-80))
+                {
+                    
                 }
+               
             };
             
             // TODO: use this.Content to load your game content here
