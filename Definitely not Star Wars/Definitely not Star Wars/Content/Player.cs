@@ -2,84 +2,65 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 
 namespace Definitely_not_Star_Wars
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Player : Game
+    public class Player : Sprite
     {
-
-        Texture2D playerImg;
-        Vector2 position;
-        Vector2 scale;
-        Vector2 velocity;
-        private float _rotation;
-        public Vector2 Origin;
-
-        private float _speed = 3f;
-        public float rotationVelocity = 3f;
-        KeyboardState keyboard;
-
-
-        public Player(Texture2D _playerImg, Vector2 _position, Vector2 _scale)
-        {
-
-            playerImg = _playerImg;
-            position = _position;
-            scale = _scale;
-            velocity = Vector2.Zero;
+        public Player(Texture2D texture)
+            : base(texture)
+        { 
+        
         }
 
-        public void Update()
+
+        public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
-            keyboard = Keyboard.GetState();
+            Move();
 
 
-
-
+            foreach (var sprite in sprites)
+            {
+                if (sprite == this)
+                {
+                    continue;
+                }
+                if ((this.Velocity.X) > 0 && this.IsTouchingLeft(sprite) || (this.Velocity.X < 0 && this.IsTouchingRight(sprite)))
+                { this.Velocity.X = 0; }
 
             
-           
-
-            if (keyboard.IsKeyDown(Keys.W))
-            {
-                position.Y -=  _speed;
             }
 
-            if (keyboard.IsKeyDown(Keys.S))
-            {
-                position.Y +=  _speed;
-            }
-
-            if (keyboard.IsKeyDown(Keys.A))
-            {
-                position.X -=  _speed;
-            }
-
-            if (keyboard.IsKeyDown(Keys.D))
-            {
-                position.X +=  _speed;
-            }
-
-            if (keyboard.IsKeyDown(Keys.Space))
-            {
-
-            }
-
+            
         }
 
+        private void Move()
+        {
+            if (Keyboard.GetState().IsKeyDown(Input.Left))
+            {
+                Velocity.X = -Speed;
 
-        public void Draw(SpriteBatch _spriteBatch)
-        {
-            _spriteBatch.Draw(playerImg, GetRect(), Color.White);
-         
-        }
-        public Rectangle GetRect()
-        {
-            Rectangle r = new Rectangle((int)position.X, (int)position.Y, (int)scale.X, (int)scale.Y);
-            return r;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Input.Right))
+            {
+                Velocity.X = Speed;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Input.Up))
+            {
+                Velocity.Y = -Speed;
+
+            }
+            else if (Keyboard.GetState().IsKeyDown(Input.Down))
+            {
+                Velocity.Y = Speed;
+            }
+
+
         }
     }
 }

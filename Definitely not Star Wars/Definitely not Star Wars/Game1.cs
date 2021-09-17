@@ -14,7 +14,7 @@ namespace Definitely_not_Star_Wars
 
         Texture2D playerImg;
         Player playerObj;
-        int windowW = 500, windowH = 700;
+        int windowW = 800, windowH = 1000;
 
 
         public Game1()
@@ -52,7 +52,7 @@ namespace Definitely_not_Star_Wars
             //Load Player IMG
             playerImg = Content.Load<Texture2D>("PlayerSprite");
 
-            playerObj = new Player(playerImg, new Vector2(windowW/2-20, windowH-60), new Vector2(50f, 50f))
+            playerObj = new Player(playerImg, new Vector2(windowW/2-30, windowH-100), new Vector2(100f, 100f))
             {
 
                
