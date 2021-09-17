@@ -113,11 +113,15 @@ namespace Definitely_not_Star_Wars
                 Exit();
 
             // TODO: Add your update logic here
-            foreach (var sprite in _sprites)
-            {
-                sprite.Update(gameTime, _sprites);
+    
+                foreach (var sprite in _sprites)
+                {
+                    
+                    sprite.Update(gameTime, _sprites);
                 
-            }
+                }
+            
+            
             currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
            
             level1.Update(currentTime);

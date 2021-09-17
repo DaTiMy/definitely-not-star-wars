@@ -13,7 +13,7 @@ namespace Definitely_not_Star_Wars
         
         public TieFighter(Texture2D texture) : base(texture)
         {
-            this.Speed = 0.02f;
+            this.Speed = 5f;
             
         }
         public override void Update(GameTime gameTime, List<Sprite> sprites)
@@ -24,6 +24,7 @@ namespace Definitely_not_Star_Wars
         public void move()
         {
             Velocity.Y = Speed;
+           
         }
     }
 }

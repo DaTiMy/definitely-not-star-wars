@@ -34,11 +34,12 @@ namespace Definitely_not_Star_Wars
             });
             Game1._sprites.Add(new TieFighter(tieFighterImg)
             {
-                Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 500),
+                Position = new Vector2(Game1.windowW / 2 - 0, Game1.windowH - 500),
                 w = 80f,
                 h = 80f,
 
             });
+
         }
 
         public void Update(float time)
@@ -46,11 +47,21 @@ namespace Definitely_not_Star_Wars
             
             if (time > 4 && time < 4.02)
             {
-                var item = Game1._sprites.Find(x => x.Id == 2);
-                Game1._sprites.Remove(item);
-                
+                Game1._sprites.Add(new TieFighter(tieFighterImg)
+                {
+                    Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 500),
+                    w = 80f,
+                    h = 80f,
+
+                });
+               
+
+
             }
-            
+
+            var item = Game1._sprites.Find(x => x.Position.Y == 900);
+            Game1._sprites.Remove(item);
+
 
 
         }
