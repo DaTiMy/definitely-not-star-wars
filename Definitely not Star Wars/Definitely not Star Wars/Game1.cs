@@ -76,8 +76,11 @@ namespace Definitely_not_Star_Wars
 
 
                 },
-                new TieFighter(tieFighterImg, new Vector2(windowW/2-25,windowH-80))
+                new TieFighter(tieFighterImg)
                 {
+                    Position = new Vector2(windowW/2-25,windowH-400),
+                    w = 80f,
+                    h = 80f,
                     
                 }
                

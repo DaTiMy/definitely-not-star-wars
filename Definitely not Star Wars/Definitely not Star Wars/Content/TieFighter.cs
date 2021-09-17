@@ -10,14 +10,19 @@ namespace Definitely_not_Star_Wars
 {
     class TieFighter : Sprite
     {
-        public TieFighter(Texture2D texture, Vector2 pos) : base(texture)
+        public TieFighter(Texture2D texture) : base(texture)
         {
             this.Speed = 5;
-            this.Position = pos;
-        }
-        public void Move()
-        {
             
+        }
+        public override void Update(GameTime gameTime, List<Sprite> sprites)
+        {
+            move();
+            Position += Velocity;
+        }
+        public void move()
+        {
+            Velocity.Y = Speed;
         }
     }
 }

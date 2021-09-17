@@ -17,6 +17,7 @@ namespace Definitely_not_Star_Wars
         public Color SColor = Color.White;
         public float Speed;
         public Input Input;
+        public float rotation;
 
         public Rectangle Rectangle
         {
