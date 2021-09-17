@@ -19,14 +19,14 @@ namespace Definitely_not_Star_Wars
         private bool _fire;
         double time = 0;
         int hp;
-
+        bool moveAble = true;
 
 
         public int HP
         {
             get { return hp; }
             set {
-                if (Convert.ToInt32(value) != 0) { hp = value; } else { throw new Exception("HP muss einen Wert über 0 haben!"); }
+                if (Convert.ToInt32(value) >= 0) { hp = value; } else { throw new Exception("HP muss einen Wert über -1 haben!"); }
             }
         }
         public bool Fire { 
@@ -37,14 +37,18 @@ namespace Definitely_not_Star_Wars
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
 
-            
-            Move();
+            if (moveAble)
+            { Move(); }
 
             if (time > 0)
             {
                 time -= gameTime.ElapsedGameTime.TotalSeconds;
                 if (time < 0)
                 { time = 0; }
+            }
+            if (HP < 1)
+            {
+                GameOver();
             }
 
             foreach (var sprite in sprites.ToArray())
@@ -63,7 +67,7 @@ namespace Definitely_not_Star_Wars
                     if (sprite.Name == "Tie-Fighter")
                     {
                         Game1._sprites.Remove(sprite);
-                        hp -= 1;
+                        HP -= 1;
                         Game1._hp.RemoveAt(Game1._hp.Count - 1);
 
 
@@ -76,6 +80,11 @@ namespace Definitely_not_Star_Wars
             Velocity = Vector2.Zero;
 
             
+        }
+
+        private void GameOver()
+        {
+            moveAble = false;
         }
 
         private void Move()
