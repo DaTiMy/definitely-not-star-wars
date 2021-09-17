@@ -16,11 +16,13 @@ namespace Definitely_not_Star_Wars
         SpriteBatch spriteBatch;
 
         public static List<Sprite> _sprites;
+        public static List<Sprite> _hp;
         Texture2D playerImg;
         public static Texture2D pbulletImg, ebulletImg;
 
         Level level1;
         Texture2D tieFighterImg;
+        Texture2D heart;
         Player playerObj;
         float currentTime;
        
@@ -64,10 +66,10 @@ namespace Definitely_not_Star_Wars
             playerImg = Content.Load<Texture2D>("PlayerSprite");
             pbulletImg = Content.Load<Texture2D>("Green_Blaster_Long");
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
+            heart = Content.Load<Texture2D>("Heart");
             level1 = new Level(tieFighterImg);
 
-            // Player Load
-            _sprites = new List<Sprite>(){new Player(playerImg, "Player")
+            playerObj = new Player(playerImg, "Player")
             {
                 Input = new Input()
                 {
@@ -84,8 +86,28 @@ namespace Definitely_not_Star_Wars
                 w = 80f,
                 h = 80f
 
-           }
             };
+            // Player Load
+            _sprites = new List<Sprite>(){ 
+                playerObj
+            };
+            
+
+            _hp = new List<Sprite>() { 
+            };
+            int x = 10, y = 10;
+            for (int i = 0; i < playerObj.HP; i++)
+            {
+                
+               _hp.Add(new Sprite(heart, "Heart")
+               {
+                   
+                   w = 50f,
+                   h = 50f,
+                   Position = new Vector2(x, y)
+               });
+                x += 55;
+            }
             level1.AddEnemy();
            
 
@@ -146,7 +168,11 @@ namespace Definitely_not_Star_Wars
             {
                 sprite.Draw(spriteBatch);
             }
-            
+            foreach (var sprite in _hp)
+            {
+                sprite.Draw(spriteBatch);
+            }
+
 
 
             spriteBatch.End();

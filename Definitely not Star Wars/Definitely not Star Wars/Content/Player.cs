@@ -13,12 +13,22 @@ namespace Definitely_not_Star_Wars
     {
         public Player(Texture2D texture, string name)
             : base(texture, name)
-        { 
-        
+        {
+            HP = 3;
         }
         private bool _fire;
         double time = 0;
+        int hp;
 
+
+
+        public int HP
+        {
+            get { return hp; }
+            set {
+                if (Convert.ToInt32(value) != 0) { hp = value; } else { throw new Exception("HP muss einen Wert über 0 haben!"); }
+            }
+        }
         public bool Fire { 
         get{ return _fire; }
             set { _fire = value; }
@@ -26,8 +36,8 @@ namespace Definitely_not_Star_Wars
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
+
             
-           
             Move();
 
             if (time > 0)
@@ -37,7 +47,7 @@ namespace Definitely_not_Star_Wars
                 { time = 0; }
             }
 
-            foreach (var sprite in sprites)
+            foreach (var sprite in sprites.ToArray())
             {
                 if (sprite == this)
                 {
@@ -45,8 +55,20 @@ namespace Definitely_not_Star_Wars
                 }
                 ///if ((this.Velocity.X) > 0 && this.IsTouchingLeft(sprite) || (this.Velocity.X < 0 && this.IsTouchingRight(sprite)))
                 ///{ this.Velocity.X = 0; }
-               /// if ((this.Velocity.Y) > 0 && this.IsTouchingTop(sprite) || (this.Velocity.Y < 0 && this.IsTouchingBottom(sprite)))
-               /// { this.Velocity.Y = 0; }
+                /// if ((this.Velocity.Y) > 0 && this.IsTouchingTop(sprite) || (this.Velocity.Y < 0 && this.IsTouchingBottom(sprite)))
+                /// { this.Velocity.Y = 0; }
+
+                if (this.Rectangle.Intersects(sprite.Rectangle))
+                {
+                    if (sprite.Name == "Tie-Fighter")
+                    {
+                        Game1._sprites.Remove(sprite);
+                        hp -= 1;
+                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+
+
+                    }
+                }
 
 
             }

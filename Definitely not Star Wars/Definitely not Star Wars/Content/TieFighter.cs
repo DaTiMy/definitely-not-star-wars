@@ -31,8 +31,10 @@ namespace Definitely_not_Star_Wars
                     if (sprite.Name == "PBullet")
                     {
                         Game1._sprites.Remove(sprite);
+                        Game1._sprites.Remove(this);
                     }
-                    Game1._sprites.Remove(this);
+                    
+                    
                 }
               
                 
