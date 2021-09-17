@@ -13,5 +13,6 @@ namespace Definitely_not_Star_Wars
         public Keys Down;
         public Keys Left;
         public Keys Right;
+        public Keys Fire;
     }
 }

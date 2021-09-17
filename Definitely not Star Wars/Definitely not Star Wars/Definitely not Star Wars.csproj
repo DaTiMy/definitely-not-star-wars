@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Content\Input.cs" />
     <Compile Include="Content\Level.cs" />
+    <Compile Include="Content\PBullet.cs" />
     <Compile Include="Content\Sprite.cs" />
     <Compile Include="Content\Player.cs" />
     <Compile Include="Game1.cs" />

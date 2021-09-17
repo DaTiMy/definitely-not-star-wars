@@ -59,8 +59,21 @@ namespace Definitely_not_Star_Wars
 
             }
 
-            var item = Game1._sprites.Find(x => x.Position.Y == 900);
-            Game1._sprites.Remove(item);
+            if (time > 10 && time < 10.02)
+            {
+                Game1._sprites.Add(new TieFighter(tieFighterImg)
+                {
+                    Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 500),
+                    w = 80f,
+                    h = 80f,
+
+                });
+
+
+
+            }
+
+            
 
 
 

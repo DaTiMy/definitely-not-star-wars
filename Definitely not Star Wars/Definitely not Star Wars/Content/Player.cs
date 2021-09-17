@@ -29,10 +29,10 @@ namespace Definitely_not_Star_Wars
                 {
                     continue;
                 }
-                if ((this.Velocity.X) > 0 && this.IsTouchingLeft(sprite) || (this.Velocity.X < 0 && this.IsTouchingRight(sprite)))
-                { this.Velocity.X = 0; }
-                if ((this.Velocity.Y) > 0 && this.IsTouchingTop(sprite) || (this.Velocity.Y < 0 && this.IsTouchingBottom(sprite)))
-                { this.Velocity.Y = 0; }
+                ///if ((this.Velocity.X) > 0 && this.IsTouchingLeft(sprite) || (this.Velocity.X < 0 && this.IsTouchingRight(sprite)))
+                ///{ this.Velocity.X = 0; }
+               /// if ((this.Velocity.Y) > 0 && this.IsTouchingTop(sprite) || (this.Velocity.Y < 0 && this.IsTouchingBottom(sprite)))
+               /// { this.Velocity.Y = 0; }
 
 
             }
@@ -44,6 +44,9 @@ namespace Definitely_not_Star_Wars
 
         private void Move()
         {
+
+
+            
             if (Keyboard.GetState().IsKeyDown(Input.Left))
             {
                 Velocity.X = -Speed;
@@ -63,6 +66,27 @@ namespace Definitely_not_Star_Wars
             {
                 Velocity.Y = Speed;
             }
+            if (Keyboard.GetState().IsKeyDown(Input.Fire))
+            {
+
+                Game1._sprites.Add(new PBullet(Game1.pbulletImg)
+                {
+                    Position = new Vector2(this.Position.X - 27, this.Position.Y - 15),
+                    w = 60f,
+                    h = 50f
+
+                });
+                Game1._sprites.Add(new PBullet(Game1.pbulletImg)
+                {
+                    Position = new Vector2(this.Position.X + 47, this.Position.Y - 15),
+                    w = 60f,
+                    h = 50f
+
+                });
+
+            }
+
+
 
 
         }

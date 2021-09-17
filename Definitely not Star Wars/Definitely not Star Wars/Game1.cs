@@ -17,6 +17,7 @@ namespace Definitely_not_Star_Wars
 
         public static List<Sprite> _sprites;
         Texture2D playerImg;
+        public static Texture2D pbulletImg, ebulletImg;
 
         Level level1;
         Texture2D tieFighterImg;
@@ -61,9 +62,10 @@ namespace Definitely_not_Star_Wars
 
             //Load Player IMG
             playerImg = Content.Load<Texture2D>("PlayerSprite");
+            pbulletImg = Content.Load<Texture2D>("Green_Blaster_Long");
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
             level1 = new Level(tieFighterImg);
-            
+
             // Player Load
             _sprites = new List<Sprite>(){new Player(playerImg)
             {
@@ -73,6 +75,7 @@ namespace Definitely_not_Star_Wars
                     Right = Keys.D,
                     Up = Keys.W,
                     Down = Keys.S,
+                    Fire = Keys.Space
 
                 },
                 Position = new Vector2(windowW / 2 - 25, windowH - 80),
@@ -114,7 +117,7 @@ namespace Definitely_not_Star_Wars
 
             // TODO: Add your update logic here
     
-                foreach (var sprite in _sprites)
+                foreach (var sprite in _sprites.ToArray())
                 {
                     
                     sprite.Update(gameTime, _sprites);
