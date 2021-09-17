@@ -28,3 +28,4 @@ C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\TripleshotPowerUp.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\bgm.wma
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\bgm.xnb
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\Red_Blaster_Long.xnb

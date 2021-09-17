@@ -66,16 +66,21 @@ namespace Definitely_not_Star_Wars
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
 
-            //Load Player IMG
+            #region load Content
             playerImg = Content.Load<Texture2D>("PlayerSprite");
             pbulletImg = Content.Load<Texture2D>("Green_Blaster_Long");
+            ebulletImg = Content.Load<Texture2D>("Red_Blaster_Long");
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
             heart = Content.Load<Texture2D>("Heart");
             triple = Content.Load<Texture2D>("TripleshotPowerUp");
             bgm = Content.Load<Song>("bgm");
+            #endregion
             level1 = new Level(tieFighterImg, triple);
+
             MediaPlayer.Volume = 0.1F;
             MediaPlayer.Play(bgm);
+
+            #region player
             playerObj = new Player(playerImg, "Player")
             {
                 Input = new Input()
@@ -115,6 +120,7 @@ namespace Definitely_not_Star_Wars
                });
                 x += 55;
             }
+            #endregion
             level1.AddEnemy();
            
 

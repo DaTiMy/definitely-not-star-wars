@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Content\EBullet.cs" />
     <Compile Include="Content\Triple.cs" />
     <Compile Include="Content\Input.cs" />
     <Compile Include="Content\Level.cs" />

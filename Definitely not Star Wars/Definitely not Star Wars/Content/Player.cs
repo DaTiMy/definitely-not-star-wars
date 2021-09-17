@@ -82,7 +82,16 @@ namespace Definitely_not_Star_Wars
                     {
                         Game1._sprites.Remove(sprite);
                         HP -= 1;
-                        
+                        if (Game1._hp.Count != 0)
+                            Game1._hp.RemoveAt(Game1._hp.Count - 1);
+
+
+                    }
+                    if (sprite.Name == "EBullet")
+                    {
+                        Game1._sprites.Remove(sprite);
+                        HP -= 1;
+                        if(Game1._hp.Count != 0)
                         Game1._hp.RemoveAt(Game1._hp.Count - 1);
 
 
@@ -167,7 +176,7 @@ namespace Definitely_not_Star_Wars
                     }
                  
 
-                    time = 0.4f;
+                    time = 0.3f;
                 }
             }
             
