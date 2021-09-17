@@ -22,7 +22,7 @@ namespace Definitely_not_Star_Wars
             get { return new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height); }
 
         }
-
+        //test
         public Sprite(Texture2D texture)
         {
             _texture = texture;

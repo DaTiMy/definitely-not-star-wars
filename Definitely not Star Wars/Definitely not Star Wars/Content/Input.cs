@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Definitely_not_Star_Wars
 {
-    class Input
+    public class Input
     {
         public Keys Up;
         public Keys Down;
