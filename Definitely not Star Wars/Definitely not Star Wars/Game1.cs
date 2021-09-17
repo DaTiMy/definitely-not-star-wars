@@ -23,6 +23,7 @@ namespace Definitely_not_Star_Wars
         Level level1;
         Texture2D tieFighterImg;
         Texture2D heart;
+        Texture2D triple;
         Player playerObj;
         float currentTime;
        
@@ -67,7 +68,8 @@ namespace Definitely_not_Star_Wars
             pbulletImg = Content.Load<Texture2D>("Green_Blaster_Long");
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
             heart = Content.Load<Texture2D>("Heart");
-            level1 = new Level(tieFighterImg);
+            triple = Content.Load<Texture2D>("TripleshotPowerUp");
+            level1 = new Level(tieFighterImg, triple);
 
             playerObj = new Player(playerImg, "Player")
             {

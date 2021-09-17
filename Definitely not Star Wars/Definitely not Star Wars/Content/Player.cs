@@ -18,10 +18,15 @@ namespace Definitely_not_Star_Wars
         }
         private bool _fire;
         double time = 0;
+        double tripleTime = 0;
         int hp;
         bool moveAble = true;
+        bool triple = false;
 
-
+        public bool TripleActive {
+            get { return triple; }
+            set { triple = value; }
+        }
         public int HP
         {
             get { return hp; }
@@ -36,7 +41,16 @@ namespace Definitely_not_Star_Wars
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
-
+            if (tripleTime > 0)
+            {
+                TripleActive = true;
+                tripleTime -= gameTime.ElapsedGameTime.TotalSeconds;
+                if (time < 0)
+                { time = 0; }
+            }
+            else {
+                TripleActive = false;
+            }
             if (moveAble)
             { Move(); }
 
@@ -68,10 +82,18 @@ namespace Definitely_not_Star_Wars
                     {
                         Game1._sprites.Remove(sprite);
                         HP -= 1;
+                        if(HP > 0)
                         Game1._hp.RemoveAt(Game1._hp.Count - 1);
 
 
                     }
+                    if (sprite.Name == "Triple")
+                    {
+                        tripleTime = Triple.tripletime;
+                        Game1._sprites.Remove(sprite);
+                        
+                    }
+
                 }
 
 
@@ -113,7 +135,7 @@ namespace Definitely_not_Star_Wars
             }
             
                 if (time  == 0)
-            {
+               {
 
                 if (Keyboard.GetState().IsKeyDown(Input.Fire))
                 {
@@ -132,6 +154,16 @@ namespace Definitely_not_Star_Wars
                         h = 50f
 
                     });
+                    if (TripleActive)
+                    {
+                        Game1._sprites.Add(new PBullet(Game1.pbulletImg, "PBullet")
+                        {
+                            Position = new Vector2(this.Position.X+10, this.Position.Y - 45),
+                            w = 60f,
+                            h = 50f
+
+                        });
+                    }
                  
 
                     time = 0.4f;

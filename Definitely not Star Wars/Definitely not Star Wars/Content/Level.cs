@@ -12,12 +12,12 @@ namespace Definitely_not_Star_Wars
     {
         public List<Sprite> Enemies;
         Texture2D tieFighterImg;
-
-        public Level(Texture2D _tieFighterImg)
+        Texture2D triple;
+        public Level(Texture2D _tieFighterImg, Texture2D _triple)
         {
 
             tieFighterImg = _tieFighterImg;
-
+            triple = _triple;
 
 
 
@@ -33,6 +33,13 @@ namespace Definitely_not_Star_Wars
 
             });
             Game1._sprites.Add(new TieFighter(tieFighterImg, "Tie-Fighter")
+            {
+                Position = new Vector2(Game1.windowW / 2 - 0, Game1.windowH - 500),
+                w = 80f,
+                h = 80f,
+
+            });
+            Game1._sprites.Add(new TieFighter(triple, "Triple")
             {
                 Position = new Vector2(Game1.windowW / 2 - 0, Game1.windowH - 500),
                 w = 80f,
