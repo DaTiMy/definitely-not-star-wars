@@ -13,12 +13,17 @@ namespace Definitely_not_Star_Wars
     {
         public List<Sprite> Enemies;
         Texture2D tieFighterImg;
+        Texture2D deathStarImg;
+
         Texture2D triple;
         Texture2D shield;
         Texture2D rapid;
 
+
         SoundEffect tieexp;
-        public Level(Texture2D _tieFighterImg, Texture2D _triple, Texture2D _shield, Texture2D _rapid, SoundEffect _tieexp)
+        SoundEffect bossHitSFX;
+
+        public Level(Texture2D _tieFighterImg, Texture2D _triple, Texture2D _shield, Texture2D _rapid, SoundEffect _tieexp, Texture2D _deathStarImg, SoundEffect _bossHitSFX)
         {
 
             tieFighterImg = _tieFighterImg;
@@ -26,6 +31,8 @@ namespace Definitely_not_Star_Wars
             shield = _shield;
             rapid = _rapid;
             tieexp = _tieexp;
+            bossHitSFX = _bossHitSFX;
+            deathStarImg = _deathStarImg;
 
         }
         public void AddEnemy()
@@ -124,6 +131,18 @@ namespace Definitely_not_Star_Wars
                     h = 80f,
 
                 });
+            }
+
+            if (time > 30 && time < 30.02)
+            {
+                Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, 1000)
+                {
+                    Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 700),
+                    w = 100f,
+                    h = 100f,
+
+                });
+
             }
                
 

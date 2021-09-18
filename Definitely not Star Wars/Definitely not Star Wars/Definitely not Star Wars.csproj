@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Content\DeathStar.cs" />
     <Compile Include="Content\EBullet.cs" />
     <Compile Include="Content\Rapid.cs" />
     <Compile Include="Content\Shield.cs" />
