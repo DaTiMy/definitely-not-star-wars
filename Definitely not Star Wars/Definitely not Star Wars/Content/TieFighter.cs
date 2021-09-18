@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,11 @@ namespace Definitely_not_Star_Wars
     class TieFighter : Sprite
     {
         double time = 2f;
-        public TieFighter(Texture2D texture, Texture2D second, string name) : base(texture,second, name)
+        SoundEffect tieexp;
+        public TieFighter(Texture2D texture, Texture2D second, string name, SoundEffect _tieexp) : base(texture,second, name)
         {
             this.Speed = 1f;
-            
+            tieexp = _tieexp;
         }
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
@@ -40,12 +42,19 @@ namespace Definitely_not_Star_Wars
                 {
                     if (sprite.Name == "PBullet")
                     {
+                        tieexp.Play();
                         Game1._sprites.Remove(sprite);
                         Game1._sprites.Remove(this);
                     }
-                    
-                    
-                }
+
+                    if (sprite.Name == "Player")
+                    {
+                        tieexp.Play();
+
+                    }
+
+
+                    }
               
                 
                 

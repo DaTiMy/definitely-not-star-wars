@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -12,11 +13,14 @@ namespace Definitely_not_Star_Wars
     public class Player : Sprite
     {
         Texture2D shieldedP;
-        public Player(Texture2D texture, Texture2D shielded, string name)
+        SoundEffect shootSFX;
+        public Player(Texture2D texture, Texture2D shielded, string name, SoundEffect seffect)
             : base(texture, shielded, name)
         {
             HP = 3;
             shieldedP = shielded;
+            shootSFX = seffect;
+            
         }
 
 
@@ -217,7 +221,7 @@ namespace Definitely_not_Star_Wars
 
                 if (Keyboard.GetState().IsKeyDown(Input.Fire))
                 {
-
+                    shootSFX.Play();
                     Game1._sprites.Add(new PBullet(Game1.pbulletImg, Game1.pbulletImg, "PBullet")
                     {
                         Position = new Vector2(this.Position.X - 27, this.Position.Y - 15),

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -30,6 +31,9 @@ namespace Definitely_not_Star_Wars
         Texture2D shield;
         Texture2D rapid;
         Texture2D playerShielded;
+
+        SoundEffect shootSFX;
+        SoundEffect tieExp;
 
         Player playerObj;
         float currentTime;
@@ -80,15 +84,19 @@ namespace Definitely_not_Star_Wars
             shield = Content.Load<Texture2D>("ShieldPowerup");
             playerShielded = Content.Load<Texture2D>("X-WingShielded2");
             rapid = Content.Load<Texture2D>("RapidFirePowerUp");
+
+            shootSFX = Content.Load<SoundEffect>("laser_shot");
+            tieExp = Content.Load<SoundEffect>("explode_tie");
+
             bgm = Content.Load<Song>("bgm");
             #endregion
-            level1 = new Level(tieFighterImg, triple, shield, rapid);
+            level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp);
 
             MediaPlayer.Volume = 0.1F;
             MediaPlayer.Play(bgm);
-
+            SoundEffect.MasterVolume = 0.1f;
             #region player
-            playerObj = new Player(playerImg, playerShielded, "Player")
+            playerObj = new Player(playerImg, playerShielded, "Player", shootSFX)
             {
                 Input = new Input()
                 {

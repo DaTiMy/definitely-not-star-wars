@@ -32,3 +32,5 @@ C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\ShieldPowerup.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\X-WingShielded2.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\RapidFirePowerUp.xnb
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\laser_shot.xnb
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\explode_tie.xnb

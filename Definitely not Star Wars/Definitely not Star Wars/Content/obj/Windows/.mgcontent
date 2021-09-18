@@ -5,8 +5,10 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/bgm.mp3</File>
+    <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/explode_tie.wav</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/Green_Blaster_Long.png</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/Heart.png</File>
+    <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/laser_shot.wav</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/PlayerSprite.png</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/RapidFirePowerUp.png</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/Red_Blaster_Long.png</File>
@@ -16,6 +18,8 @@
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/X-WingShielded2.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
