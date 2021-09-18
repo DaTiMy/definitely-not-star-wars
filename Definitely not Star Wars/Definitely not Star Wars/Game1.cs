@@ -28,6 +28,7 @@ namespace Definitely_not_Star_Wars
         Texture2D heart;
         Texture2D triple;
         Texture2D shield;
+        Texture2D rapid;
         Texture2D playerShielded;
 
         Player playerObj;
@@ -78,9 +79,10 @@ namespace Definitely_not_Star_Wars
             triple = Content.Load<Texture2D>("TripleshotPowerUp");
             shield = Content.Load<Texture2D>("ShieldPowerup");
             playerShielded = Content.Load<Texture2D>("X-WingShielded2");
+            rapid = Content.Load<Texture2D>("RapidFirePowerUp");
             bgm = Content.Load<Song>("bgm");
             #endregion
-            level1 = new Level(tieFighterImg, triple, shield);
+            level1 = new Level(tieFighterImg, triple, shield, rapid);
 
             MediaPlayer.Volume = 0.1F;
             MediaPlayer.Play(bgm);

@@ -27,15 +27,21 @@ namespace Definitely_not_Star_Wars
         double time = 0;
 
         double tripleTime = 0;
+        double rapidTime = 0;
 
-      
         bool moveAble = true;
         bool triple = false;
         bool shield = false;
-
+        bool rapid = false;
         public bool TripleActive {
             get { return triple; }
             set { triple = value; }
+        }
+
+        public bool RapidActive
+        {
+            get { return rapid; }
+            set { rapid = value; }
         }
 
         public bool ShieldActive
@@ -59,22 +65,30 @@ namespace Definitely_not_Star_Wars
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
 
-            if (ShieldActive)
-            {
             
-            
-            }
-
             if (tripleTime > 0)
             {
                 TripleActive = true;
                 tripleTime -= gameTime.ElapsedGameTime.TotalSeconds;
-                if (time < 0)
-                { time = 0; }
+                if (tripleTime < 0)
+                { tripleTime = 0; }
             }
             else {
                 TripleActive = false;
             }
+
+            if (rapidTime > 0)
+            {
+                RapidActive = true;
+                rapidTime -= gameTime.ElapsedGameTime.TotalSeconds;
+                if (rapidTime < 0)
+                { rapidTime = 0; }
+            }
+            else
+            {
+                RapidActive = false;
+            }
+
             if (moveAble)
             { Move(); }
 
@@ -150,6 +164,13 @@ namespace Definitely_not_Star_Wars
                         Game1._sprites.Remove(sprite);
 
                     }
+                    if (sprite.Name == "Rapid")
+                    {
+                        rapidTime = Rapid.rapidtime;
+
+                        Game1._sprites.Remove(sprite);
+
+                    }
 
                 }
 
@@ -221,9 +242,15 @@ namespace Definitely_not_Star_Wars
 
                         });
                     }
-                 
 
-                    time = 0.3f;
+                    if (RapidActive)
+                    {
+                        time = 0.1f;
+                    }
+                    else {
+                        time = 0.3f;
+                    }
+                    
                 }
             }
             
