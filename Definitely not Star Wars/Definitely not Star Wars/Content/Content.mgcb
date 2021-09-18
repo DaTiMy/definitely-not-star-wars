@@ -67,6 +67,18 @@
 /processorParam:TextureFormat=Color
 /build:Red_Blaster_Long.png
 
+#begin ShieldPowerup.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ShieldPowerup.png
+
 #begin TieFighter.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -90,4 +102,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:TripleshotPowerUp.png
+
+#begin X-WingShielded2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:X-WingShielded2.png
 

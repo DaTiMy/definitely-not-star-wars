@@ -11,7 +11,7 @@ namespace Definitely_not_Star_Wars
     class EBullet : Sprite
     {
       
-        public EBullet(Texture2D texture, string name) : base(texture, name)
+        public EBullet(Texture2D texture, Texture2D second, string name) : base(texture, second, name)
         {
 
             this.Speed = 3f;

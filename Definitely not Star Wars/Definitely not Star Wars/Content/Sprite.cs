@@ -10,6 +10,7 @@ namespace Definitely_not_Star_Wars
     public class Sprite
     {
         protected Texture2D _texture;
+        protected Texture2D _secondtexture;
 
         public Vector2 Position;
         public Vector2 Velocity;
@@ -40,9 +41,11 @@ namespace Definitely_not_Star_Wars
 
         }
         //test
-        public Sprite(Texture2D texture, string name)
+        public Sprite(Texture2D texture, Texture2D second, string name)
         {
             _texture = texture;
+            _secondtexture = second;
+
             Id = sid + 1;
             sid++;
             Name = name;
@@ -57,6 +60,10 @@ namespace Definitely_not_Star_Wars
         {
 
             spriteBatch.Draw(_texture, Rectangle, SColor);
+        }
+        public virtual void Draw2(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(_secondtexture, Rectangle, SColor);
         }
 
         #region Collision

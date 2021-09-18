@@ -10,7 +10,7 @@ namespace Definitely_not_Star_Wars
 {
     class PBullet : Sprite
     {
-        public PBullet(Texture2D texture, string name): base(texture, name) {
+        public PBullet(Texture2D texture, Texture2D second, string name): base(texture,second, name) {
 
             this.Speed = 10f;
         }

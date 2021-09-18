@@ -27,6 +27,9 @@ namespace Definitely_not_Star_Wars
         Texture2D tieFighterImg;
         Texture2D heart;
         Texture2D triple;
+        Texture2D shield;
+        Texture2D playerShielded;
+
         Player playerObj;
         float currentTime;
        
@@ -73,15 +76,17 @@ namespace Definitely_not_Star_Wars
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
             heart = Content.Load<Texture2D>("Heart");
             triple = Content.Load<Texture2D>("TripleshotPowerUp");
+            shield = Content.Load<Texture2D>("ShieldPowerup");
+            playerShielded = Content.Load<Texture2D>("X-WingShielded2");
             bgm = Content.Load<Song>("bgm");
             #endregion
-            level1 = new Level(tieFighterImg, triple);
+            level1 = new Level(tieFighterImg, triple, shield);
 
             MediaPlayer.Volume = 0.1F;
             MediaPlayer.Play(bgm);
 
             #region player
-            playerObj = new Player(playerImg, "Player")
+            playerObj = new Player(playerImg, playerShielded, "Player")
             {
                 Input = new Input()
                 {
@@ -111,7 +116,7 @@ namespace Definitely_not_Star_Wars
             for (int i = 0; i < playerObj.HP; i++)
             {
                 
-               _hp.Add(new Sprite(heart, "Heart")
+               _hp.Add(new Sprite(heart,heart, "Heart")
                {
                    
                    w = 50f,
@@ -121,7 +126,7 @@ namespace Definitely_not_Star_Wars
                 x += 55;
             }
             #endregion
-            level1.AddEnemy();
+            
            
 
 
@@ -179,7 +184,15 @@ namespace Definitely_not_Star_Wars
 
             foreach (var sprite in _sprites)
             {
-                sprite.Draw(spriteBatch);
+                if (playerObj.ShieldActive && sprite.Name == "Player")
+                {
+                    sprite.Draw2(spriteBatch);
+
+                }
+                else {
+                    sprite.Draw(spriteBatch);
+                }
+                
             }
             foreach (var sprite in _hp)
             {

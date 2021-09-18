@@ -10,8 +10,8 @@ namespace Definitely_not_Star_Wars
 {
     class TieFighter : Sprite
     {
-        double time;
-        public TieFighter(Texture2D texture,string name) : base(texture, name)
+        double time = 2f;
+        public TieFighter(Texture2D texture, Texture2D second, string name) : base(texture,second, name)
         {
             this.Speed = 1f;
             
@@ -67,7 +67,7 @@ namespace Definitely_not_Star_Wars
 
         public void Shoot()
         {
-            Game1._sprites.Add(new EBullet(Game1.ebulletImg, "EBullet")
+            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
             {
                 Position = new Vector2(this.Position.X+20, this.Position.Y+30),
                 w = 40f,

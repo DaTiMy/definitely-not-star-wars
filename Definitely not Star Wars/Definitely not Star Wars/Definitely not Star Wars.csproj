@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Content\EBullet.cs" />
+    <Compile Include="Content\Shield.cs" />
     <Compile Include="Content\Triple.cs" />
     <Compile Include="Content\Input.cs" />
     <Compile Include="Content\Level.cs" />

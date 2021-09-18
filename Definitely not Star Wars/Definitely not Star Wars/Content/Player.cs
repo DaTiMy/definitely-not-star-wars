@@ -11,22 +11,39 @@ namespace Definitely_not_Star_Wars
     /// </summary>
     public class Player : Sprite
     {
-        public Player(Texture2D texture, string name)
-            : base(texture, name)
+        Texture2D shieldedP;
+        public Player(Texture2D texture, Texture2D shielded, string name)
+            : base(texture, shielded, name)
         {
             HP = 3;
+            shieldedP = shielded;
         }
+
+
+
+        int hp;
+
         private bool _fire;
         double time = 0;
+
         double tripleTime = 0;
-        int hp;
+
+      
         bool moveAble = true;
         bool triple = false;
+        bool shield = false;
 
         public bool TripleActive {
             get { return triple; }
             set { triple = value; }
         }
+
+        public bool ShieldActive
+        {
+            get { return shield; }
+            set { shield = value; }
+        }
+
         public int HP
         {
             get { return hp; }
@@ -41,6 +58,13 @@ namespace Definitely_not_Star_Wars
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
+
+            if (ShieldActive)
+            {
+            
+            
+            }
+
             if (tripleTime > 0)
             {
                 TripleActive = true;
@@ -81,18 +105,34 @@ namespace Definitely_not_Star_Wars
                     if (sprite.Name == "Tie-Fighter")
                     {
                         Game1._sprites.Remove(sprite);
-                        HP -= 1;
-                        if (Game1._hp.Count != 0)
-                            Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                        if (ShieldActive)
+                        { 
+                            ShieldActive = false; 
+                        }
+                        else {
+                            HP -= 1;
+                            if (Game1._hp.Count != 0)
+                                Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                        }
+                        
 
 
                     }
                     if (sprite.Name == "EBullet")
                     {
+
                         Game1._sprites.Remove(sprite);
-                        HP -= 1;
-                        if(Game1._hp.Count != 0)
-                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                        if (ShieldActive)
+                        {
+                            ShieldActive = false;
+                        }
+                        else {
+                            HP -= 1;
+                            if (Game1._hp.Count != 0)
+                                Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                        }
+
+                       
 
 
                     }
@@ -102,6 +142,13 @@ namespace Definitely_not_Star_Wars
 
                         Game1._sprites.Remove(sprite);
                         
+                    }
+                    if (sprite.Name == "Shield")
+                    {
+                        ShieldActive = true;
+
+                        Game1._sprites.Remove(sprite);
+
                     }
 
                 }
@@ -150,14 +197,14 @@ namespace Definitely_not_Star_Wars
                 if (Keyboard.GetState().IsKeyDown(Input.Fire))
                 {
 
-                    Game1._sprites.Add(new PBullet(Game1.pbulletImg, "PBullet")
+                    Game1._sprites.Add(new PBullet(Game1.pbulletImg, Game1.pbulletImg, "PBullet")
                     {
                         Position = new Vector2(this.Position.X - 27, this.Position.Y - 15),
                         w = 60f,
                         h = 50f
 
                     });
-                    Game1._sprites.Add(new PBullet(Game1.pbulletImg, "PBullet")
+                    Game1._sprites.Add(new PBullet(Game1.pbulletImg, Game1.pbulletImg, "PBullet")
                     {
                         Position = new Vector2(this.Position.X + 47, this.Position.Y - 15),
                         w = 60f,
@@ -166,7 +213,7 @@ namespace Definitely_not_Star_Wars
                     });
                     if (TripleActive)
                     {
-                        Game1._sprites.Add(new PBullet(Game1.pbulletImg, "PBullet")
+                        Game1._sprites.Add(new PBullet(Game1.pbulletImg, Game1.pbulletImg, "PBullet")
                         {
                             Position = new Vector2(this.Position.X+10, this.Position.Y - 45),
                             w = 60f,
