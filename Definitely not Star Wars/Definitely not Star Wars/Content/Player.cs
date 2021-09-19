@@ -14,6 +14,7 @@ namespace Definitely_not_Star_Wars
     {
         Texture2D shieldedP;
         SoundEffect shootSFX;
+
         public Player(Texture2D texture, Texture2D shielded, string name, SoundEffect seffect)
             : base(texture, shielded, name)
         {
@@ -26,6 +27,7 @@ namespace Definitely_not_Star_Wars
 
 
         int hp;
+        double immunityTime = 0;
 
         private bool _fire;
         double time = 0;
@@ -61,6 +63,11 @@ namespace Definitely_not_Star_Wars
                 if (Convert.ToInt32(value) >= 0) { hp = value;  }
             }
         }
+        public bool Immunity
+        {
+            get; set;
+        }
+
         public bool Fire { 
         get{ return _fire; }
             set { _fire = value; }
@@ -68,7 +75,19 @@ namespace Definitely_not_Star_Wars
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
+            if (immunityTime > 0)
+            {
+                Immunity = true;
+                immunityTime -= gameTime.ElapsedGameTime.TotalSeconds;
+                if (immunityTime < 0)
+                {
+                    immunityTime = 0;
+                }
+            }
+            else {
+                Immunity = false;
 
+            }
             
             if (tripleTime > 0)
             {
@@ -122,35 +141,48 @@ namespace Definitely_not_Star_Wars
                 {
                     if (sprite.Name == "Tie-Fighter")
                     {
-                        Game1._sprites.Remove(sprite);
-                        if (ShieldActive)
-                        { 
-                            ShieldActive = false; 
+                        if (!Immunity)
+                        {
+                            immunityTime = 3f;
+                            Game1._sprites.Remove(sprite);
+                            if (ShieldActive)
+                            {
+                                ShieldActive = false;
+                            }
+                            else
+                            {
+
+                                HP -= 1;
+                                if (Game1._hp.Count != 0)
+                                    Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                            }
                         }
-                        else {
-                            HP -= 1;
-                            if (Game1._hp.Count != 0)
-                                Game1._hp.RemoveAt(Game1._hp.Count - 1);
-                        }
+                        
                         
 
 
                     }
                     if (sprite.Name == "EBullet")
                     {
-
                         Game1._sprites.Remove(sprite);
-                        if (ShieldActive)
+                        if (!Immunity)
                         {
-                            ShieldActive = false;
-                        }
-                        else {
-                            HP -= 1;
-                            if (Game1._hp.Count != 0)
-                                Game1._hp.RemoveAt(Game1._hp.Count - 1);
-                        }
+                            
+                            immunityTime = 3f;
+                           
+                            if (ShieldActive)
+                            {
+                                ShieldActive = false;
+                            }
+                            else
+                            {
 
-                       
+                                HP -= 1;
+                                if (Game1._hp.Count != 0)
+                                    Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                            }
+
+                        }
 
 
                     }

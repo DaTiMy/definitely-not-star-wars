@@ -16,6 +16,8 @@ namespace Definitely_not_Star_Wars
 
         int hp;
 
+        bool direction = true;
+
 
         public int HP
         {
@@ -41,8 +43,10 @@ namespace Definitely_not_Star_Wars
                 if (time < 0)
                 { time = 0; }
             }
-            if (time == 0)
+            if(time == 0)
                 Shoot();
+
+            
 
             foreach (var sprite in sprites.ToArray())
             {
@@ -88,14 +92,28 @@ namespace Definitely_not_Star_Wars
 
 
             }
-            if (Position.X > 700)
+
+            if (Position.X == 600)
             {
-                Position -= Velocity;
+
+                direction = false;
+
             }
-            else if (Position.X < 100)
+            else if (Position.X == 100)
+            {
+
+                direction = true;
+            }
+            if (direction)
             {
                 Position += Velocity;
             }
+            else {
+                Position -= Velocity;
+            }
+           
+            
+
         }
         public void move()
         {
@@ -111,12 +129,37 @@ namespace Definitely_not_Star_Wars
         {
             Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X + 20, this.Position.Y + 30),
+                Position = new Vector2(this.Position.X, this.Position.Y + 100),
                 w = 40f,
-                h = 30f
-
+                h = 30f,
+                Speed = 0.02f
             });
-            time = 2f;
+            
+            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+            {
+                Position = new Vector2(this.Position.X+10, this.Position.Y + 100),
+                w = 40f,
+                h = 30f,
+                Speed = 0.005f
+            });
+            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+            {
+                Position = new Vector2(this.Position.X+20, this.Position.Y + 100),
+                w = 40f,
+                h = 30f,
+                Speed = 0.02f
+            });
+            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+            {
+                Position = new Vector2(this.Position.X+30, this.Position.Y + 100),
+                w = 40f,
+                h = 30f,
+                Speed = 0.005f
+            });
+
+            time = 1f;
+
         }
+
     }
 }
