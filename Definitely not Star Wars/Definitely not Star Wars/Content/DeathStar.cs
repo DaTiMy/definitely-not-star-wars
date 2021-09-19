@@ -75,7 +75,7 @@ namespace Definitely_not_Star_Wars
 
                     if (sprite.Name == "Player")
                     {
-                        bossHitSFX.Play();
+                        
 
                     }
 

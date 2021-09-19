@@ -28,6 +28,7 @@ namespace Definitely_not_Star_Wars
 
         int hp;
         double immunityTime = 0;
+        int dmgCounter = 0;
 
         private bool _fire;
         double time = 0;
@@ -141,51 +142,92 @@ namespace Definitely_not_Star_Wars
                 {
                     if (sprite.Name == "Tie-Fighter")
                     {
+                        dmgCounter++;
                         if (!Immunity)
                         {
-                            immunityTime = 3f;
-                            Game1._sprites.Remove(sprite);
-                            if (ShieldActive)
+                            if (dmgCounter > 1)
                             {
-                                ShieldActive = false;
-                            }
-                            else
-                            {
+                                immunityTime = 3f;
+                                Game1._sprites.Remove(sprite);
+                                if (ShieldActive)
+                                {
+                                    ShieldActive = false;
+                                }
+                                else
+                                {
 
-                                HP -= 1;
-                                if (Game1._hp.Count != 0)
-                                    Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                                    HP -= 1;
+                                    if (Game1._hp.Count != 0)
+                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                                }
+                                dmgCounter = 0;
                             }
                         }
                         
                         
+
+
+                    }
+                    if (sprite.Name == "DeathStar")
+                    {
+                        dmgCounter++;
+                        if (!Immunity)
+                        {
+                            if (dmgCounter > 1)
+                            {
+                                immunityTime = 3f;
+                                Game1._sprites.Remove(sprite);
+                                if (ShieldActive)
+                                {
+                                    ShieldActive = false;
+                                }
+                                else
+                                {
+
+                                    HP -= 1;
+                                    if (Game1._hp.Count != 0)
+                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                                }
+                                dmgCounter = 0;
+                            }
+                        }
+
+
 
 
                     }
                     if (sprite.Name == "EBullet")
                     {
-                        Game1._sprites.Remove(sprite);
+                        dmgCounter++;
                         if (!Immunity)
                         {
+                            if (dmgCounter > 1)
+                            {
+                                Game1._sprites.Remove(sprite);
+                                immunityTime = 3f;
+
+                                if (ShieldActive)
+                                {
+                                    ShieldActive = false;
+                                }
+                                else
+                                {
+
+                                    HP -= 1;
+                                    if (Game1._hp.Count != 0)
+                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+
+
+                                }
+                                dmgCounter = 0;
+
+                            }
                             
-                            immunityTime = 3f;
-                           
-                            if (ShieldActive)
-                            {
-                                ShieldActive = false;
-                            }
-                            else
-                            {
-
-                                HP -= 1;
-                                if (Game1._hp.Count != 0)
-                                    Game1._hp.RemoveAt(Game1._hp.Count - 1);
-                            }
-
                         }
 
 
                     }
+                    
                     if (sprite.Name == "Triple")
                     {
                         tripleTime = Triple.tripletime;
