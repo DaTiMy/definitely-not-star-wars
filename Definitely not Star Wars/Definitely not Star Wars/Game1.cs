@@ -126,7 +126,7 @@ namespace Definitely_not_Star_Wars
                     Fire = Keys.Space
 
                 },
-                Position = new Vector2(windowW / 2 - 25, windowH - 80),
+                Position = new Vector2(windowW / 2 - 25, windowH - 120),
                 SColor = Color.White,
                 Speed = 8f,
                 w = 80f,

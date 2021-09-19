@@ -86,6 +86,7 @@ namespace Definitely_not_Star_Wars
                 }
             }
             else {
+                dmgCounter = 0;
                 Immunity = false;
 
             }
@@ -112,6 +113,7 @@ namespace Definitely_not_Star_Wars
             {
                 RapidActive = false;
             }
+
 
             if (moveAble)
             { Move(); }
@@ -145,7 +147,7 @@ namespace Definitely_not_Star_Wars
                         dmgCounter++;
                         if (!Immunity)
                         {
-                            if (dmgCounter > 1)
+                            if (dmgCounter > 0 && dmgCounter < 2)
                             {
                                 immunityTime = 3f;
                                 Game1._sprites.Remove(sprite);
@@ -160,7 +162,7 @@ namespace Definitely_not_Star_Wars
                                     if (Game1._hp.Count != 0)
                                         Game1._hp.RemoveAt(Game1._hp.Count - 1);
                                 }
-                                dmgCounter = 0;
+                                
                             }
                         }
                         
@@ -201,7 +203,7 @@ namespace Definitely_not_Star_Wars
                         dmgCounter++;
                         if (!Immunity)
                         {
-                            if (dmgCounter > 1)
+                            if (dmgCounter > 0 && dmgCounter < 2)
                             {
                                 Game1._sprites.Remove(sprite);
                                 immunityTime = 3f;
@@ -219,7 +221,7 @@ namespace Definitely_not_Star_Wars
 
 
                                 }
-                                dmgCounter = 0;
+                               
 
                             }
                             
@@ -232,7 +234,7 @@ namespace Definitely_not_Star_Wars
                         dmgCounter++;
                         if (!Immunity)
                         {
-                            if (dmgCounter > 1)
+                            if (dmgCounter > 0 && dmgCounter < 2)
                             {
                                 Game1._sprites.Remove(sprite);
                                 immunityTime = 3f;
@@ -250,7 +252,7 @@ namespace Definitely_not_Star_Wars
 
 
                                 }
-                                dmgCounter = 0;
+                               
 
                             }
 
@@ -285,10 +287,12 @@ namespace Definitely_not_Star_Wars
 
 
             }
+          
+        
             Position += Velocity;
             Velocity = Vector2.Zero;
+           
 
-            
         }
 
         private void GameOver()
@@ -298,8 +302,12 @@ namespace Definitely_not_Star_Wars
 
         private void Move()
         {
-            
 
+
+            if (Position.X > 780)
+            { Position.X = -60; }
+            if (Position.X < -60)
+            { Position.X = 780; }
             
             if (Keyboard.GetState().IsKeyDown(Input.Left))
             {
@@ -313,12 +321,21 @@ namespace Definitely_not_Star_Wars
 
             if (Keyboard.GetState().IsKeyDown(Input.Up))
             {
-                Velocity.Y = -Speed;
-
+                if (Position.Y < 10)
+                { this.Velocity.Y = 0; }
+                else
+                {
+                    Velocity.Y = -Speed;
+                }
             }
             else if (Keyboard.GetState().IsKeyDown(Input.Down))
             {
-                Velocity.Y = Speed;
+
+                if (Position.Y > 900)
+                { this.Velocity.Y = 0; }
+                else {
+                    Velocity.Y = Speed;
+                }
             }
             
                 if (time  == 0)
@@ -363,6 +380,7 @@ namespace Definitely_not_Star_Wars
                 }
             }
             
+
 
 
 
