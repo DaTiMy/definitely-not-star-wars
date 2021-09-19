@@ -12,7 +12,9 @@ namespace Definitely_not_Star_Wars
     class DeathStar : Sprite
     {
         double time = 2f;
+        double plasmatime = 5f;
         SoundEffect bossHitSFX;
+
 
         int hp;
 
@@ -46,7 +48,22 @@ namespace Definitely_not_Star_Wars
             if(time == 0)
                 Shoot();
 
-            
+            if (plasmatime > 0)
+            {
+                plasmatime -= gameTime.ElapsedGameTime.TotalSeconds;
+                if (plasmatime < 0)
+                { plasmatime = 0; }
+            }
+            if (plasmatime == 0)
+            {
+                AddPlasmaStorm(200, 300);
+                AddPlasmaStorm(400, 300);
+                AddPlasmaStorm(600, 300);
+                plasmatime = 5f;
+            }
+                
+
+
 
             foreach (var sprite in sprites.ToArray())
             {
@@ -124,6 +141,69 @@ namespace Definitely_not_Star_Wars
             
 
         }
+
+        public void AddPlasmaStorm(int posx, int posy)
+        {
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, false)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, false)
+            {
+                Position = new Vector2(posx, posy + 10),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, false)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, true)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, true)
+            {
+                Position = new Vector2(posx, posy - 10),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, true)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, true, false, false)
+            {
+                Position = new Vector2(posx - 10, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, true, false)
+            {
+                Position = new Vector2(posx + 10, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            
+
+        }
+
 
         public void Shoot()
         {

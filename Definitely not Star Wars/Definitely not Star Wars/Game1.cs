@@ -23,7 +23,7 @@ namespace Definitely_not_Star_Wars
         public static List<Sprite> _hp;
         Texture2D playerImg;
         Texture2D background;
-        public static Texture2D pbulletImg, ebulletImg;
+        public static Texture2D pbulletImg, ebulletImg, plasma;
 
         Level level1;
         Texture2D tieFighterImg;
@@ -85,6 +85,7 @@ namespace Definitely_not_Star_Wars
             playerImg = Content.Load<Texture2D>("PlayerSprite");
             pbulletImg = Content.Load<Texture2D>("Green_Blaster_Long");
             ebulletImg = Content.Load<Texture2D>("Red_Blaster_Long");
+            plasma = Content.Load<Texture2D>("plasma");
 
 
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
@@ -95,9 +96,9 @@ namespace Definitely_not_Star_Wars
             shield = Content.Load<Texture2D>("ShieldPowerup");
             playerShielded = Content.Load<Texture2D>("X-WingShielded2");
             rapid = Content.Load<Texture2D>("RapidFirePowerUp");
+           
 
 
-            
             shootSFX = Content.Load<SoundEffect>("laser_shot");
             tieExp = Content.Load<SoundEffect>("explode_tie");
             bosshitSFX = Content.Load<SoundEffect>("bosshit");
@@ -105,7 +106,7 @@ namespace Definitely_not_Star_Wars
 
             bgm = Content.Load<Song>("bgm");
             #endregion
-            level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX);
+            level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX, plasma);
 
             MediaPlayer.Volume = 0.1F;
             MediaPlayer.Play(bgm);

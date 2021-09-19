@@ -227,7 +227,38 @@ namespace Definitely_not_Star_Wars
 
 
                     }
-                    
+                    if (sprite.Name == "EPlasma")
+                    {
+                        dmgCounter++;
+                        if (!Immunity)
+                        {
+                            if (dmgCounter > 1)
+                            {
+                                Game1._sprites.Remove(sprite);
+                                immunityTime = 3f;
+
+                                if (ShieldActive)
+                                {
+                                    ShieldActive = false;
+                                }
+                                else
+                                {
+
+                                    HP -= 1;
+                                    if (Game1._hp.Count != 0)
+                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+
+
+                                }
+                                dmgCounter = 0;
+
+                            }
+
+                        }
+
+
+                    }
+
                     if (sprite.Name == "Triple")
                     {
                         tripleTime = Triple.tripletime;

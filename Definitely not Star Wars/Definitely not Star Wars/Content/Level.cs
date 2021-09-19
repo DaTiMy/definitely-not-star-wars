@@ -15,9 +15,12 @@ namespace Definitely_not_Star_Wars
         Texture2D tieFighterImg;
         Texture2D deathStarImg;
 
+        Texture2D plasma;
+
         Texture2D triple;
         Texture2D shield;
         Texture2D rapid;
+
 
 
         SoundEffect tieexp;
@@ -25,7 +28,7 @@ namespace Definitely_not_Star_Wars
 
        
 
-        public Level(Texture2D _tieFighterImg, Texture2D _triple, Texture2D _shield, Texture2D _rapid, SoundEffect _tieexp, Texture2D _deathStarImg, SoundEffect _bossHitSFX)
+        public Level(Texture2D _tieFighterImg, Texture2D _triple, Texture2D _shield, Texture2D _rapid, SoundEffect _tieexp, Texture2D _deathStarImg, SoundEffect _bossHitSFX, Texture2D _plasma)
         {
 
             tieFighterImg = _tieFighterImg;
@@ -35,6 +38,7 @@ namespace Definitely_not_Star_Wars
             tieexp = _tieexp;
             bossHitSFX = _bossHitSFX;
             deathStarImg = _deathStarImg;
+            plasma = _plasma;
             SoundEffect.MasterVolume = 0.01f;
 
         }
@@ -59,6 +63,66 @@ namespace Definitely_not_Star_Wars
 
         }
 
+        public void AddPlasmaStorm(int posx, int posy)
+        {
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true,true,false,false)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, false, false)
+            {
+                Position = new Vector2(posx, posy + 10),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, false, true, false)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, true, false, true)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, false, true)
+            {
+                Position = new Vector2(posx , posy - 10),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, false, true, true)
+            {
+                Position = new Vector2(posx, posy ),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, true, false, false)
+            {
+                Position = new Vector2(posx - 10, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, true, false)
+            {
+                Position = new Vector2(posx + 10, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+        }
+
         public void Update(float time)
         {
 
@@ -73,6 +137,9 @@ namespace Definitely_not_Star_Wars
                     Speed = 0.5f
 
                 });
+                AddPlasmaStorm(300,500);
+                AddPlasmaStorm(500, 500);
+                AddPlasmaStorm(400, 500);
                 Game1._sprites.Add(new Rapid(rapid, rapid, "Rapid")
                 {
                     Position = new Vector2(200, 0),
@@ -82,6 +149,15 @@ namespace Definitely_not_Star_Wars
 
                 });
                 Game1._sprites.Add(new Triple(triple, triple, "Triple")
+                {
+                    Position = new Vector2(400, 0),
+                    w = 80f,
+                    h = 80f,
+
+
+                });
+
+                Game1._sprites.Add(new Shield(shield, shield, "Shield")
                 {
                     Position = new Vector2(400, 0),
                     w = 80f,
