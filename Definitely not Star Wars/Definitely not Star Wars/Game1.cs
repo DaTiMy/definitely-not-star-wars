@@ -22,6 +22,7 @@ namespace Definitely_not_Star_Wars
         public static List<Sprite> _sprites;
         public static List<Sprite> _hp;
         Texture2D playerImg;
+        Texture2D background;
         public static Texture2D pbulletImg, ebulletImg;
 
         Level level1;
@@ -33,6 +34,7 @@ namespace Definitely_not_Star_Wars
         Texture2D shield;
         Texture2D rapid;
         Texture2D playerShielded;
+
         
 
         SoundEffect shootSFX;
@@ -79,6 +81,7 @@ namespace Definitely_not_Star_Wars
 
 
             #region load Content
+            background = Content.Load<Texture2D>("bg");
             playerImg = Content.Load<Texture2D>("PlayerSprite");
             pbulletImg = Content.Load<Texture2D>("Green_Blaster_Long");
             ebulletImg = Content.Load<Texture2D>("Red_Blaster_Long");
@@ -202,7 +205,7 @@ namespace Definitely_not_Star_Wars
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-
+            spriteBatch.Draw(background, new Rectangle(0, 0, windowW, windowH), Color.White);
 
             foreach (var sprite in _sprites)
             {
@@ -221,7 +224,7 @@ namespace Definitely_not_Star_Wars
                 sprite.Draw(spriteBatch);
             }
 
-
+          
 
             spriteBatch.End();
 

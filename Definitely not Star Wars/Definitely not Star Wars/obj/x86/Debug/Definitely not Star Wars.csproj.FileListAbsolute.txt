@@ -36,3 +36,4 @@ C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\Deathstar.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\bosshit.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\explode_tie.xnb
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\bg.xnb
