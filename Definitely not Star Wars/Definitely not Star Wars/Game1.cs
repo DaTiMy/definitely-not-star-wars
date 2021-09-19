@@ -40,6 +40,7 @@ namespace Definitely_not_Star_Wars
         SoundEffect shootSFX;
         SoundEffect tieExp;
         SoundEffect bosshitSFX;
+        public static SoundEffect bossExplodeSFX;
 
         Player playerObj;
         float currentTime;
@@ -102,7 +103,9 @@ namespace Definitely_not_Star_Wars
             shootSFX = Content.Load<SoundEffect>("laser_shot");
             tieExp = Content.Load<SoundEffect>("explode_tie");
             bosshitSFX = Content.Load<SoundEffect>("bosshit");
-            
+            bossExplodeSFX = Content.Load<SoundEffect>("BossExplode"); 
+
+
 
             bgm = Content.Load<Song>("bgm");
             #endregion
@@ -193,7 +196,7 @@ namespace Definitely_not_Star_Wars
             
             currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
            
-            level1.Update(currentTime);
+            level1.Update(Convert.ToInt32(currentTime), gameTime);
             base.Update(gameTime);
         }
 

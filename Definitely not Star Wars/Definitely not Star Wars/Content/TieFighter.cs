@@ -13,13 +13,30 @@ namespace Definitely_not_Star_Wars
     {
         double time = 2f;
         SoundEffect tieexp;
-        public TieFighter(Texture2D texture, Texture2D second, string name, SoundEffect _tieexp) : base(texture,second, name)
+        bool direction = true;
+        float tempPos = 0;
+
+
+        public TieFighter(Texture2D texture, Texture2D second, string name, SoundEffect _tieexp, bool  _abnormal) : base(texture,second, name)
         {
             this.Speed = 1f;
             tieexp = _tieexp;
+            Abnormal = _abnormal;
+        }
+     
+
+        public bool Abnormal {
+            get;set;
+        
         }
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
+            if (tempPos == 0)
+            {
+                tempPos = Position.X;
+            }
+            
+            
             move();
 
 
@@ -66,11 +83,41 @@ namespace Definitely_not_Star_Wars
 
 
             }
+
             Position += Velocity;
+            
         }
         public void move()
         {
-            Velocity.Y = Speed;
+            if (Abnormal)
+            {
+                Velocity.Y = Speed;
+
+                if (this.Position.X >= this.tempPos + 15)
+                {
+
+                    direction = false;
+
+                }
+                else if (this.Position.X <= this.tempPos - 15)
+                {
+
+                    direction = true;
+                }
+
+                if (direction)
+                {
+                    Position.X += Speed*2;
+                }
+                else
+                {
+                    Position.X -= Speed*2;
+                }
+            }
+            else {
+                Velocity.Y = Speed;
+            }
+            
            
         }
 
@@ -85,5 +132,8 @@ namespace Definitely_not_Star_Wars
             });
             time = 2f;
         }
+
+       
+
     }
 }

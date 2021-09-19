@@ -56,6 +56,7 @@ namespace Definitely_not_Star_Wars
             }
             if (plasmatime == 0)
             {
+                
                 AddPlasmaStorm(200, 300);
                 AddPlasmaStorm(400, 300);
                 AddPlasmaStorm(600, 300);
@@ -84,7 +85,15 @@ namespace Definitely_not_Star_Wars
                         }
                         else {
 
+                            AddPlasmaStorm(this.Position.X + 70, this.Position.Y + 70);
+                            AddPlasmaStorm(this.Position.X + 60, this.Position.Y + 60);
+                            AddPlasmaStorm(this.Position.X + 80, this.Position.Y + 80);
+                            AddPlasmaStorm(this.Position.X + 70, this.Position.Y + 80);
+                            AddPlasmaStorm(this.Position.X + 80, this.Position.Y + 70);
+                            AddPlasmaStorm(this.Position.X + 60, this.Position.Y + 70);
+                            AddPlasmaStorm(this.Position.X + 70, this.Position.Y + 0);
                             Game1._sprites.Remove(sprite);
+                            Game1.bossExplodeSFX.Play();
                             Game1._sprites.Remove(this);
                         }
                         
@@ -142,7 +151,7 @@ namespace Definitely_not_Star_Wars
 
         }
 
-        public void AddPlasmaStorm(int posx, int posy)
+        public void AddPlasmaStorm(float posx, float posy)
         {
             Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, false)
             {

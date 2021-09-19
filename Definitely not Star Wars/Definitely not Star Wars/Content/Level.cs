@@ -21,11 +21,12 @@ namespace Definitely_not_Star_Wars
         Texture2D shield;
         Texture2D rapid;
 
-
+        bool spawned = false;
+        double spawnCD = 0f;
 
         SoundEffect tieexp;
         SoundEffect bossHitSFX;
-
+       
        
 
         public Level(Texture2D _tieFighterImg, Texture2D _triple, Texture2D _shield, Texture2D _rapid, SoundEffect _tieexp, Texture2D _deathStarImg, SoundEffect _bossHitSFX, Texture2D _plasma)
@@ -42,24 +43,32 @@ namespace Definitely_not_Star_Wars
             SoundEffect.MasterVolume = 0.01f;
 
         }
-        public void AddEnemy()
+        public void AddEnemyNormal(float posx, float posy)
         {
             
-            Game1._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp)
+            Game1._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp , false)
             {
-                Position = new Vector2(Game1.windowW / 2 - 25, Game1.windowH - 600),
-                w = 80f,
-                h = 80f,
-
-            });
-            Game1._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp)
-            {
-                Position = new Vector2(Game1.windowW / 2 - 0, Game1.windowH - 500),
+                Position = new Vector2(posx, posy),
                 w = 80f,
                 h = 80f,
 
             });
             
+            
+
+        }
+        public void AddEnemyAbNormal(float posx, float posy)
+        {
+
+            Game1._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp, true)
+            {
+                Position = new Vector2(posx, posy),
+                w = 80f,
+                h = 80f,
+
+            });
+
+
 
         }
 
@@ -123,29 +132,24 @@ namespace Definitely_not_Star_Wars
             });
         }
 
-        public void Update(float time)
+        public void Update(int time, GameTime gameTime)
         {
-
-
-            if (time > 1 && time < 1.02)
+            if (spawnCD > 0)
             {
-                Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, 100)
-                {
-                    Position = new Vector2(100, 0),
-                    w = 150f,
-                    h = 150f,
-                    Speed = 0.5f
-
-                });
-                AddPlasmaStorm(300,500);
-                AddPlasmaStorm(500, 500);
-                AddPlasmaStorm(400, 500);
+                spawned = true;
+                spawnCD -= gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else {
+                spawned = false;
+            }
+            if (time == 1 && !spawned)
+            {
                 Game1._sprites.Add(new Rapid(rapid, rapid, "Rapid")
                 {
                     Position = new Vector2(200, 0),
                     w = 80f,
                     h = 80f,
-                  
+
 
                 });
                 Game1._sprites.Add(new Triple(triple, triple, "Triple")
@@ -159,12 +163,81 @@ namespace Definitely_not_Star_Wars
 
                 Game1._sprites.Add(new Shield(shield, shield, "Shield")
                 {
-                    Position = new Vector2(400, 0),
+                    Position = new Vector2(600, 0),
                     w = 80f,
                     h = 80f,
 
 
                 });
+                spawnCD = 1f;
+             
+            }
+
+            
+            if (time == 5 && !spawned)
+            {
+                AddEnemyAbNormal(50,200);
+                AddEnemyAbNormal(280, 200);
+                AddEnemyAbNormal(500, 200);
+                AddEnemyAbNormal(700, 200);
+                AddEnemyAbNormal(30, 0);
+                AddEnemyAbNormal(250, 0);
+                AddEnemyAbNormal(420, 0);
+                AddEnemyAbNormal(720, 0);
+                spawnCD = 1f;
+
+            }
+
+
+            if (time == 10 && !spawned)
+            {
+
+                AddPlasmaStorm(300, 500);
+                AddPlasmaStorm(500, 500);
+                AddPlasmaStorm(400, 500);
+                spawnCD = 1f;
+            }
+
+            if (time == 11 && !spawned)
+            {
+                AddEnemyAbNormal(50, 200);
+                AddEnemyAbNormal(280, 200);
+                AddEnemyAbNormal(500, 200);
+                AddEnemyAbNormal(700, 200);
+                AddEnemyAbNormal(30, 0);
+                AddEnemyAbNormal(250, 0);
+                AddEnemyAbNormal(420, 0);
+                AddEnemyAbNormal(720, 0);
+                spawnCD = 1f;
+
+            }
+            if (time == 15 && !spawned)
+            {
+                AddEnemyAbNormal(50, 200);
+                AddEnemyAbNormal(280, 200);
+                AddEnemyAbNormal(500, 200);
+                AddEnemyAbNormal(700, 200);
+                AddEnemyAbNormal(30, 0);
+                AddEnemyAbNormal(250, 0);
+                AddEnemyAbNormal(420, 0);
+                AddEnemyAbNormal(720, 0);
+                spawnCD = 1f;
+
+            }
+            if (time == 20 && !spawned)
+            {
+                Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, 100)
+                {
+                    Position = new Vector2(100, 0),
+                    w = 150f,
+                    h = 150f,
+                    Speed = 0.5f
+
+                });
+                AddPlasmaStorm(300,500);
+                AddPlasmaStorm(500, 500);
+                AddPlasmaStorm(400, 500);
+                spawnCD = 1f;
 
             }
                

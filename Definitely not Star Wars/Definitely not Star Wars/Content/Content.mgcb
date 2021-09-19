@@ -31,6 +31,12 @@
 /processorParam:Quality=Best
 /build:bgm.mp3
 
+#begin BossExplode.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BossExplode.wav
+
 #begin bosshit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
