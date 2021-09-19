@@ -129,7 +129,7 @@ namespace Definitely_not_Star_Wars
         {
             Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X+20, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.02f
@@ -137,21 +137,21 @@ namespace Definitely_not_Star_Wars
             
             Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+10, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X+40, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.005f
             });
             Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+20, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X+60, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.02f
             });
             Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+30, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X+80, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.005f

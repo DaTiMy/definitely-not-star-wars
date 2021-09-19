@@ -65,12 +65,28 @@ namespace Definitely_not_Star_Wars
 
             if (time > 1 && time < 1.02)
             {
-                Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, 1000)
+                Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, 100)
                 {
                     Position = new Vector2(100, 0),
-                    w = 100f,
-                    h = 100f,
+                    w = 150f,
+                    h = 150f,
                     Speed = 0.5f
+
+                });
+                Game1._sprites.Add(new Rapid(rapid, rapid, "Rapid")
+                {
+                    Position = new Vector2(200, 0),
+                    w = 80f,
+                    h = 80f,
+                  
+
+                });
+                Game1._sprites.Add(new Triple(triple, triple, "Triple")
+                {
+                    Position = new Vector2(400, 0),
+                    w = 80f,
+                    h = 80f,
+
 
                 });
 
