@@ -10,10 +10,10 @@ namespace Definitely_not_Star_Wars
 {
     class Shield : Sprite
     {
-       
 
 
-        public Shield(Texture2D texture, Texture2D second, string name) : base(texture,second, name)
+
+        public Shield(Texture2D texture, Texture2D second, string name) : base(texture, second, name)
         {
             this.Speed = 3f;
 

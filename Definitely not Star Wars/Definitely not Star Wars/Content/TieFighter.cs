@@ -93,13 +93,13 @@ namespace Definitely_not_Star_Wars
             {
                 Velocity.Y = Speed;
 
-                if (this.Position.X >= this.tempPos + 15)
+                if (this.Position.X >= this.tempPos + 30)
                 {
 
                     direction = false;
 
                 }
-                else if (this.Position.X <= this.tempPos - 15)
+                else if (this.Position.X <= this.tempPos - 30)
                 {
 
                     direction = true;
@@ -107,11 +107,11 @@ namespace Definitely_not_Star_Wars
 
                 if (direction)
                 {
-                    Position.X += Speed*2;
+                    Position.X += Speed*3;
                 }
                 else
                 {
-                    Position.X -= Speed*2;
+                    Position.X -= Speed*3;
                 }
             }
             else {

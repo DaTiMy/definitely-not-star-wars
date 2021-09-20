@@ -10,7 +10,7 @@ namespace Definitely_not_Star_Wars
 {
     class Rapid : Sprite
     {
-        public static double rapidtime = 15;
+        public static double rapidtime = 5;
 
 
         public Rapid(Texture2D texture, Texture2D second, string name) : base(texture, second, name)

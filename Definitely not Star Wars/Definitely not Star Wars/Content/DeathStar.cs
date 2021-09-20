@@ -13,10 +13,12 @@ namespace Definitely_not_Star_Wars
     {
         double time = 2f;
         double plasmatime = 5f;
+
         SoundEffect bossHitSFX;
 
 
-        int hp;
+        int hp, total;
+        
 
         bool direction = true;
 
@@ -32,6 +34,7 @@ namespace Definitely_not_Star_Wars
             this.Speed = 1f;
             bossHitSFX = _bossHitSFX;
             HP = _hp;
+            total = _hp;
 
         }
         public override void Update(GameTime gameTime, List<Sprite> sprites)
@@ -60,6 +63,10 @@ namespace Definitely_not_Star_Wars
                 AddPlasmaStorm(200, 300);
                 AddPlasmaStorm(400, 300);
                 AddPlasmaStorm(600, 300);
+                if (HP <= Convert.ToInt32(total/2) && HP >= 0)
+                { 
+                    AddPlasmaStorm(400, 400);
+                }
                 plasmatime = 5f;
             }
                 
@@ -92,6 +99,7 @@ namespace Definitely_not_Star_Wars
                             AddPlasmaStorm(this.Position.X + 80, this.Position.Y + 70);
                             AddPlasmaStorm(this.Position.X + 60, this.Position.Y + 70);
                             AddPlasmaStorm(this.Position.X + 70, this.Position.Y + 0);
+                            
                             Game1._sprites.Remove(sprite);
                             if (HP == 0)
                             {
@@ -123,13 +131,13 @@ namespace Definitely_not_Star_Wars
 
             }
 
-            if (Position.X == 600)
+            if (Position.X >= 600)
             {
 
                 direction = false;
 
             }
-            else if (Position.X == 100)
+            else if (Position.X <= 100)
             {
 
                 direction = true;
@@ -147,8 +155,15 @@ namespace Definitely_not_Star_Wars
         }
         public void move()
         {
-            
+
+            if (HP <= Convert.ToInt32(total / 2) && HP >= 0)
+            {
+                Velocity.X = Speed*4;
+            }
+            else {
                 Velocity.X = Speed;
+            }
+           
            
           
             

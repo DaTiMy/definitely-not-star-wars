@@ -111,9 +111,9 @@ namespace Definitely_not_Star_Wars
             #endregion
             level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX, plasma);
 
-            MediaPlayer.Volume = 0.1F;
+            MediaPlayer.Volume = 0.3f;
             MediaPlayer.Play(bgm);
-            SoundEffect.MasterVolume = 0.1f;
+            SoundEffect.MasterVolume = 0.05f;
             #region player
             playerObj = new Player(playerImg, playerShielded, "Player", shootSFX)
             {
