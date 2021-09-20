@@ -149,7 +149,7 @@ namespace Definitely_not_Star_Wars
                         {
                             if (dmgCounter > 0 && dmgCounter < 2)
                             {
-                                immunityTime = 3f;
+                                immunityTime = 2f;
                                 Game1._sprites.Remove(sprite);
                                 if (ShieldActive)
                                 {
@@ -177,7 +177,7 @@ namespace Definitely_not_Star_Wars
                         {
                             if (dmgCounter > 1)
                             {
-                                immunityTime = 3f;
+                                immunityTime = 2f;
                                 Game1._sprites.Remove(sprite);
                                 if (ShieldActive)
                                 {
@@ -206,7 +206,7 @@ namespace Definitely_not_Star_Wars
                             if (dmgCounter > 0 && dmgCounter < 2)
                             {
                                 Game1._sprites.Remove(sprite);
-                                immunityTime = 3f;
+                                immunityTime = 2f;
 
                                 if (ShieldActive)
                                 {
@@ -237,7 +237,7 @@ namespace Definitely_not_Star_Wars
                             if (dmgCounter > 0 && dmgCounter < 2)
                             {
                                 Game1._sprites.Remove(sprite);
-                                immunityTime = 3f;
+                                immunityTime = 2f;
 
                                 if (ShieldActive)
                                 {

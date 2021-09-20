@@ -178,97 +178,269 @@ namespace Definitely_not_Star_Wars
 
         public void Update(int time, GameTime gameTime)
         {
-           /* if (spawnCD > 0)
+            /* 
+
+
+             if (time == 5 && !spawned)
+             {
+                 AddEnemyAbNormal(50,200);
+                 AddEnemyAbNormal(280, 200);
+                 AddEnemyAbNormal(500, 200);
+                 AddEnemyAbNormal(700, 200);
+                 AddEnemyAbNormal(30, 0);
+                 AddEnemyAbNormal(250, 0);
+                 AddEnemyAbNormal(420, 0);
+                 AddEnemyAbNormal(720, 0);
+                 spawnCD = 1f;
+
+             }
+            
+
+             if (time == 10 && !spawned)
+             {
+
+                 AddPlasmaStorm(300, 500);
+                 AddPlasmaStorm(500, 500);
+                 AddPlasmaStorm(400, 500);
+                 spawnCD = 1f;
+             }
+
+             if (time == 11 && !spawned)
+             {
+                 AddEnemyAbNormal(50, 200);
+                 AddEnemyAbNormal(280, 200);
+                 AddEnemyAbNormal(500, 200);
+                 AddEnemyAbNormal(700, 200);
+                 AddEnemyAbNormal(30, 0);
+                 AddEnemyAbNormal(250, 0);
+                 AddEnemyAbNormal(420, 0);
+                 AddEnemyAbNormal(720, 0);
+                 spawnCD = 1f;
+
+             }
+             if (time == 15 && !spawned)
+             {
+                 AddEnemyAbNormal(50, 200);
+                 AddEnemyAbNormal(280, 200);
+                 AddEnemyAbNormal(500, 200);
+                 AddEnemyAbNormal(700, 200);
+                 AddEnemyAbNormal(30, 0);
+                 AddEnemyAbNormal(250, 0);
+                 AddEnemyAbNormal(420, 0);
+                 AddEnemyAbNormal(720, 0);
+                 spawnCD = 1f;
+
+             }
+             if (time == 20 && !spawned)
+             {
+
+                 AddPlasmaStorm(300,500);
+                 AddPlasmaStorm(500, 500);
+                 AddPlasmaStorm(400, 500);
+                 spawnCD = 1f;
+
+             }
+
+
+
+
+             */
+            if (spawnCD > 0)
             {
                 spawned = true;
                 spawnCD -= gameTime.ElapsedGameTime.TotalSeconds;
             }
-            else {
+            else
+            {
                 spawned = false;
             }
             if (time == 1 && !spawned)
             {
-                
 
-               
+
+
                 spawnCD = 1f;
-             
-            }
 
-            
+
+            }
+            if (time == 1 && !spawned)
+            {
+
+                AddEnemyNormal(100,100);
+                AddEnemyNormal(300, 100);
+                AddEnemyNormal(500, 100);
+                AddEnemyNormal(700, 100);
+                AddShield(400, 300);
+               
+
+                spawnCD = 1f;
+
+            }
+            if (time == 2 && !spawned)
+            {
+
+                AddEnemyAbNormal(200, 100);
+                AddEnemyNormal(400, 100);
+                AddEnemyAbNormal(600,100);
+
+                spawnCD = 1f;
+
+            }
             if (time == 5 && !spawned)
             {
-                AddEnemyAbNormal(50,200);
-                AddEnemyAbNormal(280, 200);
-                AddEnemyAbNormal(500, 200);
-                AddEnemyAbNormal(700, 200);
-                AddEnemyAbNormal(30, 0);
-                AddEnemyAbNormal(250, 0);
-                AddEnemyAbNormal(420, 0);
-                AddEnemyAbNormal(720, 0);
+                AddTriple(300, 300);
+                AddEnemyNormal(300, 100);
+                AddEnemyAbNormal(500, 100);
+                AddEnemyNormal(700, 100);
+                AddPlasmaStorm(200, 500);
                 spawnCD = 1f;
-
-            }
-            if(time == 8 && !spawned)
-            {
                 
-              
-                spawnCD = 1f;
-
             }
-
-            if (time == 10 && !spawned)
+            if (time == 6 && !spawned)
             {
-
-                AddPlasmaStorm(300, 500);
-                AddPlasmaStorm(500, 500);
-                AddPlasmaStorm(400, 500);
+                AddEnemyNormal(400, 100);
+                AddEnemyNormal(600, 100);
                 spawnCD = 1f;
             }
+            if (time == 8 && !spawned)
+            {
+                AddEnemyNormal(100, 100);
+                AddEnemyAbNormal(300, 100);
+                AddEnemyNormal(500, 100);
+                AddPlasmaStorm(600, 500);
+                spawnCD = 1f;
 
+            }
+            if (time == 9 && !spawned)
+            {
+                AddEnemyNormal(200, 100);
+                AddEnemyNormal(400, 100);
+                spawnCD = 1f;
+            }
             if (time == 11 && !spawned)
             {
-                AddEnemyAbNormal(50, 200);
-                AddEnemyAbNormal(280, 200);
-                AddEnemyAbNormal(500, 200);
-                AddEnemyAbNormal(700, 200);
-                AddEnemyAbNormal(30, 0);
-                AddEnemyAbNormal(250, 0);
-                AddEnemyAbNormal(420, 0);
-                AddEnemyAbNormal(720, 0);
+                AddEnemyNormal(300, 100);
+                AddEnemyNormal(500, 100);
                 spawnCD = 1f;
-
             }
-            if (time == 15 && !spawned)
+            if (time == 12 && !spawned)
             {
-                AddEnemyAbNormal(50, 200);
-                AddEnemyAbNormal(280, 200);
-                AddEnemyAbNormal(500, 200);
-                AddEnemyAbNormal(700, 200);
-                AddEnemyAbNormal(30, 0);
-                AddEnemyAbNormal(250, 0);
-                AddEnemyAbNormal(420, 0);
-                AddEnemyAbNormal(720, 0);
+                AddEnemyAbNormal(400, 100);
+                
                 spawnCD = 1f;
+            }
+            if (time == 13 && !spawned)
+            {
+                AddShield(400, 500);
+                AddEnemyNormal(100, 100);
+                AddEnemyNormal(300, 100);
+                AddEnemyNormal(500, 100);
+                AddEnemyNormal(700, 100);
+                spawnCD = 1f;
+            }
+            if (time == 14 && !spawned)
+            {
+                AddEnemyAbNormal(200, 100);
+                AddEnemyAbNormal(600, 100);
+                spawnCD = 1f;
+            }
+            if (time == 16 && !spawned)
+            {
+                AddEnemyNormal(100, 100);
+                AddEnemyNormal(300, 100);
+                AddEnemyNormal(500, 100);
+                AddEnemyNormal(700, 100);
+                AddPlasmaStorm(400,500);
+             
+                spawnCD = 1f;
+            }
+            if (time == 17 && !spawned)
+            {
+                AddEnemyAbNormal(200, 100);
+                AddEnemyAbNormal(600, 100);
+                spawnCD = 1f;
+            }
+            if (time == 19 && !spawned)
+            {
+                AddShield(400, 500);
+                AddRapidFire(600, 300);
+                AddEnemyAbNormal(100, 100);
+                AddEnemyAbNormal(250, 100);
+                AddEnemyAbNormal(400, 100);
+                AddEnemyAbNormal(550, 100);
+                AddEnemyAbNormal(700, 100);
+                AddPlasmaStorm(200, 500);
+                AddPlasmaStorm(600, 500);
 
+
+                spawnCD = 1f;
             }
             if (time == 20 && !spawned)
             {
-               
-                AddPlasmaStorm(300,500);
-                AddPlasmaStorm(500, 500);
-                AddPlasmaStorm(400, 500);
+                AddEnemyAbNormal(350, 100);
+                AddEnemyAbNormal(200, 100);
+                AddEnemyAbNormal(600, 100);
+                AddEnemyAbNormal(450, 100);
                 spawnCD = 1f;
+            }
+            if (time == 23 && !spawned)
+            {
+                AddEnemyNormal(100, 100);
+                AddEnemyNormal(300, 100);
+                AddEnemyNormal(500, 100);
+                AddEnemyNormal(700, 100);
+                AddPlasmaStorm(200, 200);
+                AddPlasmaStorm(600, 200);
+                AddPlasmaStorm(200, 600);
+                AddPlasmaStorm(600, 600);
+
+
+                spawnCD = 1f;
+            }
+            if (time == 24 && !spawned)
+            {
+                AddEnemyAbNormal(200, 100);
+                AddEnemyAbNormal(600, 100);
+                spawnCD = 1f;
+            }
+            if (time == 26 && !spawned)
+            {
+                AddShield(400, 500);
+                AddEnemyAbNormal(200, 100);
+                AddEnemyAbNormal(600, 100);
+                AddEnemyAbNormal(400, 100);
+
+                spawnCD = 1f;
+            }
+            if (time == 27 && !spawned)
+            {
+                AddEnemyAbNormal(300, 100);
+                AddEnemyAbNormal(500, 100);
+                spawnCD = 1f;
+            }
+            if (time == 29 && !spawned)
+            {
+                AddShield(200, 100);
+                AddRapidFire(600, 100);
+                spawnCD = 1f;
+            }
+
+            if (time == 30 && !spawned)
+            {
+                AddEnemyAbNormal(100, 100);
+                AddEnemyAbNormal(700, 100);
+                spawnCD = 1f;  
 
             }
-               
-
-
-
-            */
-
+            if (time == 31 && !spawned)
+            {
+                AddPlasmaStorm(200, 500);
+                AddPlasmaStorm(600, 500);
+                AddDeathStar(400, 100,110);
+                spawnCD = 1f;
+            }
         }
 
-        
+
     }
 }
