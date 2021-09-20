@@ -14,12 +14,15 @@ namespace Definitely_not_Star_Wars
     /// </summary>
     public class Game1 : Game
     {
+        private SpriteFont font;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         Song bgm;
 
         public static bool gameOver = false;
+        bool ready = false;
+        float temptime;
 
         public static List<Sprite> _sprites;
         public static List<Sprite> _hp;
@@ -89,7 +92,7 @@ namespace Definitely_not_Star_Wars
             pbulletImg = Content.Load<Texture2D>("Green_Blaster_Long");
             ebulletImg = Content.Load<Texture2D>("Red_Blaster_Long");
             plasma = Content.Load<Texture2D>("plasma");
-
+            font = Content.Load<SpriteFont>("Menu");
 
             tieFighterImg = Content.Load<Texture2D>("TieFighter");
             deathStarImg = Content.Load<Texture2D>("Deathstar");
@@ -199,20 +202,29 @@ namespace Definitely_not_Star_Wars
 
 
                 currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+                
                 level1.Update(Convert.ToInt32(currentTime), gameTime);
             }
             else {
 
                 currentTime = 0;
+                
                 Game1._sprites.Clear();
                 Game1._hp.Clear();
                 level1 = null;
                 
+                temptime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                Console.WriteLine(temptime);
+                if (Convert.ToInt32(temptime) == 3) {
+                    temptime = 3;
+                    ready = true;
+                }
             }
 
-            if (gameOver && Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (gameOver && Keyboard.GetState().IsKeyDown(Keys.Space) && ready)
             {
+                ready = false;
+                temptime = 0;
                 level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX, plasma);
 
                 playerObj = new Player(playerImg, playerShielded, "Player", shootSFX)
@@ -280,7 +292,12 @@ namespace Definitely_not_Star_Wars
 
             spriteBatch.Begin();
             spriteBatch.Draw(background, new Rectangle(0, 0, windowW, windowH), Color.White);
-
+            if (gameOver)
+            {
+                spriteBatch.DrawString(font, "Game over", new Vector2(windowW/2-155, 100), Color.White);
+                spriteBatch.DrawString(font, @"Press SPACE to restart!", new Vector2(windowW / 2 - 310, 300), Color.White);
+            }
+          
             foreach (var sprite in _sprites)
             {
                 if (playerObj.ShieldActive && sprite.Name == "Player")

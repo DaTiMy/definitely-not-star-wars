@@ -91,6 +91,13 @@
 /processorParam:Quality=Best
 /build:laser_shot.wav
 
+#begin Menu.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Menu.spritefont
+
 #begin plasma.png
 /importer:TextureImporter
 /processor:TextureProcessor
