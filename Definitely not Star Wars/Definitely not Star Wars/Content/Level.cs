@@ -71,6 +71,50 @@ namespace Definitely_not_Star_Wars
 
 
         }
+        public void AddRapidFire(float posx, float posy)
+        {
+            Game1._sprites.Add(new Rapid(rapid, rapid, "Rapid")
+            {
+                Position = new Vector2(posx, posy),
+                w = 80f,
+                h = 80f,
+
+
+            });
+        }
+        public void AddShield(float posx, float posy)
+        {
+            Game1._sprites.Add(new Shield(shield, shield, "Shield")
+            {
+                Position = new Vector2(posx, posy),
+                w = 80f,
+                h = 80f,
+
+
+            });
+        }
+        public void AddTriple(float posx, float posy)
+        {
+            Game1._sprites.Add(new Triple(triple, triple, "Triple")
+            {
+                Position = new Vector2(posx, posy),
+                w = 80f,
+                h = 80f,
+
+
+            });
+        }
+        public void AddDeathStar(float posx, float posy, int hp)
+        {
+            Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, hp)
+            {
+                Position = new Vector2(posx, posy),
+                w = 150f,
+                h = 150f,
+                Speed = 0.5f
+
+            });
+        }
 
         public void AddPlasmaStorm(int posx, int posy)
         {
@@ -134,7 +178,7 @@ namespace Definitely_not_Star_Wars
 
         public void Update(int time, GameTime gameTime)
         {
-            if (spawnCD > 0)
+           /* if (spawnCD > 0)
             {
                 spawned = true;
                 spawnCD -= gameTime.ElapsedGameTime.TotalSeconds;
@@ -146,14 +190,7 @@ namespace Definitely_not_Star_Wars
             {
                 
 
-                Game1._sprites.Add(new Shield(shield, shield, "Shield")
-                {
-                    Position = new Vector2(600, 0),
-                    w = 80f,
-                    h = 80f,
-
-
-                });
+               
                 spawnCD = 1f;
              
             }
@@ -174,22 +211,8 @@ namespace Definitely_not_Star_Wars
             }
             if(time == 8 && !spawned)
             {
-                Game1._sprites.Add(new Rapid(rapid, rapid, "Rapid")
-                {
-                    Position = new Vector2(200, 0),
-                    w = 80f,
-                    h = 80f,
-
-
-                });
-                Game1._sprites.Add(new Triple(triple, triple, "Triple")
-                {
-                    Position = new Vector2(400, 0),
-                    w = 80f,
-                    h = 80f,
-
-
-                });
+                
+              
                 spawnCD = 1f;
 
             }
@@ -231,14 +254,7 @@ namespace Definitely_not_Star_Wars
             }
             if (time == 20 && !spawned)
             {
-                Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, 300)
-                {
-                    Position = new Vector2(100, 0),
-                    w = 150f,
-                    h = 150f,
-                    Speed = 0.5f
-
-                });
+               
                 AddPlasmaStorm(300,500);
                 AddPlasmaStorm(500, 500);
                 AddPlasmaStorm(400, 500);
@@ -249,7 +265,7 @@ namespace Definitely_not_Star_Wars
 
 
 
-
+            */
 
         }
 
