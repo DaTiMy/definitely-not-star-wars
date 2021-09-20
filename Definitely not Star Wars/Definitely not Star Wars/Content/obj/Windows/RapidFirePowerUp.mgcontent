@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/RapidFirePowerUp.png</SourceFile>
-  <SourceTime>2021-09-17T11:14:42.4628706+02:00</SourceTime>
+  <SourceTime>2021-09-17T09:37:43.6504861+02:00</SourceTime>
   <DestFile>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/bin/Windows/RapidFirePowerUp.xnb</DestFile>
-  <DestTime>2021-09-19T12:12:17.0415275+02:00</DestTime>
+  <DestTime>2021-09-20T08:33:37.1450451+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
