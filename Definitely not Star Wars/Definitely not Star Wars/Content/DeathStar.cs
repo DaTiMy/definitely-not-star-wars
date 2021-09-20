@@ -93,7 +93,11 @@ namespace Definitely_not_Star_Wars
                             AddPlasmaStorm(this.Position.X + 60, this.Position.Y + 70);
                             AddPlasmaStorm(this.Position.X + 70, this.Position.Y + 0);
                             Game1._sprites.Remove(sprite);
-                            Game1.bossExplodeSFX.Play();
+                            if (HP == 0)
+                            {
+                                Game1.bossExplodeSFX.Play();
+                            }
+                            
                             Game1._sprites.Remove(this);
                         }
                         
