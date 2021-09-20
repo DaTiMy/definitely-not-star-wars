@@ -251,6 +251,10 @@ namespace Definitely_not_Star_Wars
                                         Game1._hp.RemoveAt(Game1._hp.Count - 1);
 
 
+
+
+
+
                                 }
                                
 
@@ -298,8 +302,69 @@ namespace Definitely_not_Star_Wars
         private void GameOver()
         {
             moveAble = false;
-        }
+            AddPlasmaStorm(this.Position.X/2,this.Position.Y/2);
+            Game1.gameOver = true;
 
+        }
+        public void AddPlasmaStorm(float posx, float posy)
+        {
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, false)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, false)
+            {
+                Position = new Vector2(posx, posy + 10),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, false)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, true)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, true)
+            {
+                Position = new Vector2(posx, posy - 10),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, true)
+            {
+                Position = new Vector2(posx, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, true, false, false)
+            {
+                Position = new Vector2(posx - 10, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, true, false)
+            {
+                Position = new Vector2(posx + 10, posy),
+                w = 20f,
+                h = 20f,
+
+            });
+        }
         private void Move()
         {
 

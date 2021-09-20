@@ -15,7 +15,8 @@ namespace Definitely_not_Star_Wars
         SoundEffect tieexp;
         bool direction = true;
         float tempPos = 0;
-
+        private int dmgCounter;
+        private double immunityTime;
 
         public TieFighter(Texture2D texture, Texture2D second, string name, SoundEffect _tieexp, bool  _abnormal) : base(texture,second, name)
         {
@@ -29,14 +30,33 @@ namespace Definitely_not_Star_Wars
             get;set;
         
         }
+        public bool Immunity { get; private set; }
+
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
             if (tempPos == 0)
             {
                 tempPos = Position.X;
             }
-            
-            
+
+
+            if (immunityTime > 0)
+            {
+                Immunity = true;
+                immunityTime -= gameTime.ElapsedGameTime.TotalSeconds;
+                if (immunityTime < 0)
+                {
+                    immunityTime = 0;
+                }
+            }
+            else
+            {
+                dmgCounter = 0;
+                Immunity = false;
+
+            }
+
+
             move();
 
 
@@ -66,7 +86,15 @@ namespace Definitely_not_Star_Wars
 
                     if (sprite.Name == "Player")
                     {
-                        tieexp.Play();
+                        if (!Immunity)
+                        {
+                            if (dmgCounter > 0 && dmgCounter < 2)
+                            {
+                                tieexp.Play();
+                                immunityTime = 2f;
+                            }
+                        }
+                               
 
                     }
 

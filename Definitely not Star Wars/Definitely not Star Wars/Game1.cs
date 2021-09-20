@@ -19,6 +19,8 @@ namespace Definitely_not_Star_Wars
 
         Song bgm;
 
+        public static bool gameOver = false;
+
         public static List<Sprite> _sprites;
         public static List<Sprite> _hp;
         Texture2D playerImg;
@@ -185,18 +187,86 @@ namespace Definitely_not_Star_Wars
                 Exit();
 
             // TODO: Add your update logic here
-    
+            if (!gameOver)
+            {
+
                 foreach (var sprite in _sprites.ToArray())
                 {
-                    
+
                     sprite.Update(gameTime, _sprites);
-                
+
                 }
-            
-            
-            currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-           
-            level1.Update(Convert.ToInt32(currentTime), gameTime);
+
+
+                currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                level1.Update(Convert.ToInt32(currentTime), gameTime);
+            }
+            else {
+
+                currentTime = 0;
+                Game1._sprites.Clear();
+                Game1._hp.Clear();
+                level1 = null;
+                
+            }
+
+            if (gameOver && Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX, plasma);
+
+                playerObj = new Player(playerImg, playerShielded, "Player", shootSFX)
+                {
+                    Input = new Input()
+                    {
+                        Left = Keys.A,
+                        Right = Keys.D,
+                        Up = Keys.W,
+                        Down = Keys.S,
+                        Fire = Keys.Space
+
+                    },
+                    Position = new Vector2(windowW / 2 - 25, windowH - 120),
+                    SColor = Color.White,
+                    Speed = 8f,
+                    w = 80f,
+                    h = 80f
+
+                };
+                // Player Load
+                _sprites = new List<Sprite>(){
+                playerObj
+            };
+
+
+                _hp = new List<Sprite>()
+                {
+                };
+                int x = 10, y = 10;
+                for (int i = 0; i < playerObj.HP; i++)
+                {
+
+                    _hp.Add(new Sprite(heart, heart, "Heart")
+                    {
+
+                        w = 50f,
+                        h = 50f,
+                        Position = new Vector2(x, y)
+                    });
+                    x += 55;
+                }
+
+
+
+                gameOver = false;
+               
+
+
+
+
+
+            }
+    
             base.Update(gameTime);
         }
 
@@ -234,5 +304,7 @@ namespace Definitely_not_Star_Wars
 
             base.Draw(gameTime);
         }
+
+        
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/Red_Blaster_Long.png</SourceFile>
-  <SourceTime>2021-09-17T09:56:45.332379+02:00</SourceTime>
+  <SourceTime>2021-09-17T11:14:42.4638681+02:00</SourceTime>
   <DestFile>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/bin/Windows/Content/Red_Blaster_Long.xnb</DestFile>
-  <DestTime>2021-09-20T10:56:26.4240348+02:00</DestTime>
+  <DestTime>2021-09-20T19:10:27.5170452+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -116,7 +116,7 @@ namespace Definitely_not_Star_Wars
             });
         }
 
-        public void AddPlasmaStorm(int posx, int posy)
+        public void AddPlasmaStorm(float posx, float posy)
         {
             Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true,true,false,false)
             {
@@ -440,6 +440,8 @@ namespace Definitely_not_Star_Wars
                 spawnCD = 1f;
             }
         }
+
+        
 
 
     }
