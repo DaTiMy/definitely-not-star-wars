@@ -31,9 +31,11 @@ namespace Definitely_not_Star_Wars
         public string Name
         {
             get { return name; }
-            set { if (value != null)
+            set
+            {
+                if (value != null)
                 { name = value; }
-                        }
+            }
         }
         public Rectangle Rectangle
         {
@@ -73,7 +75,7 @@ namespace Definitely_not_Star_Wars
                    this.Rectangle.Left < sprite.Rectangle.Left &&
                    this.Rectangle.Bottom > sprite.Rectangle.Top &&
                    this.Rectangle.Top < sprite.Rectangle.Bottom;
-        
+
         }
         protected bool IsTouchingRight(Sprite sprite)
         {

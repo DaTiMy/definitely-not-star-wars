@@ -14,7 +14,7 @@ namespace Definitely_not_Star_Wars
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
+            using (var game = new GameManager())
                 game.Run();
             
         }

@@ -10,22 +10,22 @@ namespace Definitely_not_Star_Wars
 {
     class Triple : Sprite
     {
-       public static double tripletime = 20;
+        public static double tripletime = 20;
 
 
         public Triple(Texture2D texture, Texture2D second, string name) : base(texture, second, name)
         {
             this.Speed = 3f;
-         
+
         }
 
-      
-        
+
+
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
             move();
 
-           
+
             Position += Velocity;
         }
         public void move()
@@ -33,6 +33,6 @@ namespace Definitely_not_Star_Wars
             Velocity.Y = Speed;
 
         }
-    
-}
+
+    }
 }

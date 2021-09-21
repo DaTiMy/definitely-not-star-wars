@@ -12,7 +12,7 @@ namespace Definitely_not_Star_Wars
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class GameManager : Game
     {
         private SpriteFont font;
         GraphicsDeviceManager graphics;
@@ -40,7 +40,7 @@ namespace Definitely_not_Star_Wars
         Texture2D rapid;
         Texture2D playerShielded;
 
-        
+
 
         SoundEffect shootSFX;
         SoundEffect tieExp;
@@ -49,12 +49,12 @@ namespace Definitely_not_Star_Wars
 
         Player playerObj;
         float currentTime;
-       
+
 
         public static int windowW = 800, windowH = 1000;
 
 
-        public Game1()
+        public GameManager()
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = windowW;  // set this value to the desired width of your window
@@ -102,13 +102,13 @@ namespace Definitely_not_Star_Wars
             shield = Content.Load<Texture2D>("ShieldPowerup");
             playerShielded = Content.Load<Texture2D>("X-WingShielded2");
             rapid = Content.Load<Texture2D>("RapidFirePowerUp");
-           
+
 
 
             shootSFX = Content.Load<SoundEffect>("laser_shot");
             tieExp = Content.Load<SoundEffect>("explode_tie");
             bosshitSFX = Content.Load<SoundEffect>("bosshit");
-            bossExplodeSFX = Content.Load<SoundEffect>("BossExplode"); 
+            bossExplodeSFX = Content.Load<SoundEffect>("BossExplode");
 
 
 
@@ -139,29 +139,30 @@ namespace Definitely_not_Star_Wars
 
             };
             // Player Load
-            _sprites = new List<Sprite>(){ 
+            _sprites = new List<Sprite>(){
                 playerObj
             };
-            
 
-            _hp = new List<Sprite>() { 
+
+            _hp = new List<Sprite>()
+            {
             };
             int x = 10, y = 10;
             for (int i = 0; i < playerObj.HP; i++)
             {
-                
-               _hp.Add(new Sprite(heart,heart, "Heart")
-               {
-                   
-                   w = 50f,
-                   h = 50f,
-                   Position = new Vector2(x, y)
-               });
+
+                _hp.Add(new Sprite(heart, heart, "Heart")
+                {
+
+                    w = 50f,
+                    h = 50f,
+                    Position = new Vector2(x, y)
+                });
                 x += 55;
             }
             #endregion
-            
-           
+
+
 
 
 
@@ -185,7 +186,7 @@ namespace Definitely_not_Star_Wars
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -202,20 +203,22 @@ namespace Definitely_not_Star_Wars
 
 
                 currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                
+
                 level1.Update(Convert.ToInt32(currentTime), gameTime);
             }
-            else {
+            else
+            {
 
                 currentTime = 0;
-                
-                Game1._sprites.Clear();
-                Game1._hp.Clear();
+
+                GameManager._sprites.Clear();
+                GameManager._hp.Clear();
                 level1 = null;
-                
+
                 temptime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-           
-                if (Convert.ToInt32(temptime) == 3) {
+
+                if (Convert.ToInt32(temptime) == 3)
+                {
                     temptime = 3;
                     ready = true;
                 }
@@ -285,14 +288,14 @@ namespace Definitely_not_Star_Wars
 
 
                 gameOver = false;
-               
+
 
 
 
 
 
             }
-    
+
             base.Update(gameTime);
         }
 
@@ -308,7 +311,7 @@ namespace Definitely_not_Star_Wars
             spriteBatch.Draw(background, new Rectangle(0, 0, windowW, windowH), Color.White);
             if (gameOver)
             {
-                spriteBatch.DrawString(font, "Game over", new Vector2(windowW/2-155, 100), Color.White);
+                spriteBatch.DrawString(font, "Game over", new Vector2(windowW / 2 - 155, 100), Color.White);
                 spriteBatch.DrawString(font, @"Press SPACE to restart!", new Vector2(windowW / 2 - 310, 300), Color.White);
             }
             if (DeathStar.isDead)
@@ -316,7 +319,7 @@ namespace Definitely_not_Star_Wars
                 spriteBatch.DrawString(font, "victory!", new Vector2(windowW / 2 - 155, 100), Color.White);
                 spriteBatch.DrawString(font, @"Press SPACE to restart!", new Vector2(windowW / 2 - 310, 300), Color.White);
             }
-          
+
             foreach (var sprite in _sprites)
             {
                 if (playerObj.ShieldActive && sprite.Name == "Player")
@@ -324,23 +327,24 @@ namespace Definitely_not_Star_Wars
                     sprite.Draw2(spriteBatch);
 
                 }
-                else {
+                else
+                {
                     sprite.Draw(spriteBatch);
                 }
-                
+
             }
             foreach (var sprite in _hp)
             {
                 sprite.Draw(spriteBatch);
             }
 
-          
+
 
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
-        
+
     }
 }

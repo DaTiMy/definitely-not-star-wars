@@ -18,17 +18,18 @@ namespace Definitely_not_Star_Wars
         private int dmgCounter;
         private double immunityTime;
 
-        public TieFighter(Texture2D texture, Texture2D second, string name, SoundEffect _tieexp, bool  _abnormal) : base(texture,second, name)
+        public TieFighter(Texture2D texture, Texture2D second, string name, SoundEffect _tieexp, bool _abnormal) : base(texture, second, name)
         {
             this.Speed = 1f;
             tieexp = _tieexp;
             Abnormal = _abnormal;
         }
-     
 
-        public bool Abnormal {
-            get;set;
-        
+
+        public bool Abnormal
+        {
+            get; set;
+
         }
         public bool Immunity { get; private set; }
 
@@ -66,8 +67,8 @@ namespace Definitely_not_Star_Wars
                 if (time < 0)
                 { time = 0; }
             }
-            if(time == 0)
-            Shoot();
+            if (time == 0)
+                Shoot();
 
             foreach (var sprite in sprites.ToArray())
             {
@@ -80,8 +81,8 @@ namespace Definitely_not_Star_Wars
                     if (sprite.Name == "PBullet")
                     {
                         tieexp.Play();
-                        Game1._sprites.Remove(sprite);
-                        Game1._sprites.Remove(this);
+                        GameManager._sprites.Remove(sprite);
+                        GameManager._sprites.Remove(this);
                     }
 
                     if (sprite.Name == "Player")
@@ -94,26 +95,26 @@ namespace Definitely_not_Star_Wars
                                 immunityTime = 2f;
                             }
                         }
-                               
-
-                    }
 
 
                     }
-              
-                
-                
+
+
+                }
+
+
+
                 if (this.Position.Y > 900)
                 {
-                    Game1._sprites.Remove(this);
+                    GameManager._sprites.Remove(this);
                 }
-              
+
 
 
             }
 
             Position += Velocity;
-            
+
         }
         public void move()
         {
@@ -135,25 +136,26 @@ namespace Definitely_not_Star_Wars
 
                 if (direction)
                 {
-                    Position.X += Speed*3;
+                    Position.X += Speed * 3;
                 }
                 else
                 {
-                    Position.X -= Speed*3;
+                    Position.X -= Speed * 3;
                 }
             }
-            else {
+            else
+            {
                 Velocity.Y = Speed;
             }
-            
-           
+
+
         }
 
         public void Shoot()
         {
-            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+            GameManager._sprites.Add(new EBullet(GameManager.ebulletImg, GameManager.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+20, this.Position.Y+30),
+                Position = new Vector2(this.Position.X + 20, this.Position.Y + 30),
                 w = 40f,
                 h = 30f
 
@@ -161,7 +163,7 @@ namespace Definitely_not_Star_Wars
             time = 2f;
         }
 
-       
+
 
     }
 }

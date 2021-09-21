@@ -18,17 +18,17 @@ namespace Definitely_not_Star_Wars
 
 
         int hp, total;
-        
+
 
         bool direction = true;
 
-      
+
 
         public int HP
         {
             get { return hp; }
             set { hp = value; }
-        
+
         }
         public DeathStar(Texture2D texture, Texture2D second, string name, SoundEffect _bossHitSFX, int _hp) : base(texture, second, name)
         {
@@ -50,7 +50,7 @@ namespace Definitely_not_Star_Wars
                 if (time < 0)
                 { time = 0; }
             }
-            if(time == 0)
+            if (time == 0)
                 Shoot();
 
             if (plasmatime > 0)
@@ -61,17 +61,17 @@ namespace Definitely_not_Star_Wars
             }
             if (plasmatime == 0)
             {
-                
+
                 AddPlasmaStorm(200, 300);
                 AddPlasmaStorm(400, 300);
                 AddPlasmaStorm(600, 300);
-                if (HP <= Convert.ToInt32(total/2) && HP >= 0)
-                { 
+                if (HP <= Convert.ToInt32(total / 2) && HP >= 0)
+                {
                     AddPlasmaStorm(400, 400);
                 }
                 plasmatime = 5f;
             }
-                
+
 
 
 
@@ -88,11 +88,12 @@ namespace Definitely_not_Star_Wars
                         bossHitSFX.Play();
                         if (HP > 0)
                         {
-                            Game1._sprites.Remove(sprite);
-                            HP -= 1; 
-                        
+                            GameManager._sprites.Remove(sprite);
+                            HP -= 1;
+
                         }
-                        else {
+                        else
+                        {
 
                             AddPlasmaStorm(this.Position.X + 70, this.Position.Y + 70);
                             AddPlasmaStorm(this.Position.X + 60, this.Position.Y + 60);
@@ -101,21 +102,21 @@ namespace Definitely_not_Star_Wars
                             AddPlasmaStorm(this.Position.X + 80, this.Position.Y + 70);
                             AddPlasmaStorm(this.Position.X + 60, this.Position.Y + 70);
                             AddPlasmaStorm(this.Position.X + 70, this.Position.Y + 0);
-                            
-                            Game1._sprites.Remove(sprite);
+
+                            GameManager._sprites.Remove(sprite);
                             if (HP == 0)
                             {
-                                Game1.bossExplodeSFX.Play();
+                                GameManager.bossExplodeSFX.Play();
                             }
                             isDead = true;
-                          
+
                         }
-                        
+
                     }
 
                     if (sprite.Name == "Player")
                     {
-                        
+
 
                     }
 
@@ -127,7 +128,7 @@ namespace Definitely_not_Star_Wars
                 if (this.Position.Y > 900)
                 {
 
-                    Game1._sprites.Remove(this);
+                    GameManager._sprites.Remove(this);
                 }
 
 
@@ -149,11 +150,12 @@ namespace Definitely_not_Star_Wars
             {
                 Position += Velocity;
             }
-            else {
+            else
+            {
                 Position -= Velocity;
             }
-           
-            
+
+
 
         }
         public void move()
@@ -161,115 +163,112 @@ namespace Definitely_not_Star_Wars
 
             if (HP <= Convert.ToInt32(total / 2) && HP >= 0)
             {
-                Velocity.X = Speed*4;
+                Velocity.X = Speed * 4;
             }
-            else {
+            else
+            {
                 Velocity.X = Speed;
             }
-           
-           
-          
-            
+
+
+
+
 
         }
 
 
-        public void Dead()
-        { 
-        
-            
-        }
+
 
         public void AddPlasmaStorm(float posx, float posy)
         {
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, true, false, false)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, false, false, false)
             {
                 Position = new Vector2(posx, posy + 10),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, false, true, false)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, true)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, true, false, true)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, true)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, false, false, true)
             {
                 Position = new Vector2(posx, posy - 10),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, true)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, false, true, true)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, true, false, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, true, false, false)
             {
                 Position = new Vector2(posx - 10, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, true, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, false, true, false)
             {
                 Position = new Vector2(posx + 10, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            
+
 
         }
 
 
         public void Shoot()
         {
-            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+            GameManager._sprites.Add(new EBullet(GameManager.ebulletImg, GameManager.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+20, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X + 20, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.02f
             });
-            
-            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+
+            GameManager._sprites.Add(new EBullet(GameManager.ebulletImg, GameManager.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+40, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X + 40, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.005f
             });
-            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+            GameManager._sprites.Add(new EBullet(GameManager.ebulletImg, GameManager.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+60, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X + 60, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.02f
             });
-            Game1._sprites.Add(new EBullet(Game1.ebulletImg, Game1.ebulletImg, "EBullet")
+            GameManager._sprites.Add(new EBullet(GameManager.ebulletImg, GameManager.ebulletImg, "EBullet")
             {
-                Position = new Vector2(this.Position.X+80, this.Position.Y + 100),
+                Position = new Vector2(this.Position.X + 80, this.Position.Y + 100),
                 w = 40f,
                 h = 30f,
                 Speed = 0.005f

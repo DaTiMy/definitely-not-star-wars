@@ -10,7 +10,7 @@ namespace Definitely_not_Star_Wars
 {
     class EBullet : Sprite
     {
-      
+
         public EBullet(Texture2D texture, Texture2D second, string name) : base(texture, second, name)
         {
 
@@ -31,7 +31,7 @@ namespace Definitely_not_Star_Wars
                 }
                 if (this.Position.Y > 1000)
                 {
-                    Game1._sprites.Remove(this);
+                    GameManager._sprites.Remove(this);
                 }
 
             }
@@ -42,7 +42,7 @@ namespace Definitely_not_Star_Wars
         public void move()
         {
             Velocity.Y += Speed;
-            
+
         }
     }
 }

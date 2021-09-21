@@ -28,8 +28,8 @@ namespace Definitely_not_Star_Wars
 
         SoundEffect tieexp;
         SoundEffect bossHitSFX;
-       
-       
+
+
 
         public Level(Texture2D _tieFighterImg, Texture2D _triple, Texture2D _shield, Texture2D _rapid, SoundEffect _tieexp, Texture2D _deathStarImg, SoundEffect _bossHitSFX, Texture2D _plasma)
         {
@@ -47,22 +47,22 @@ namespace Definitely_not_Star_Wars
         }
         public void AddEnemyNormal(float posx, float posy)
         {
-            
-            Game1._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp , false)
+
+            GameManager._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp, false)
             {
                 Position = new Vector2(posx, posy),
                 w = 80f,
                 h = 80f,
 
             });
-            
-            
+
+
 
         }
         public void AddEnemyAbNormal(float posx, float posy)
         {
 
-            Game1._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp, true)
+            GameManager._sprites.Add(new TieFighter(tieFighterImg, tieFighterImg, "Tie-Fighter", tieexp, true)
             {
                 Position = new Vector2(posx, posy),
                 w = 80f,
@@ -75,7 +75,7 @@ namespace Definitely_not_Star_Wars
         }
         public void AddRapidFire(float posx, float posy)
         {
-            Game1._sprites.Add(new Rapid(rapid, rapid, "Rapid")
+            GameManager._sprites.Add(new Rapid(rapid, rapid, "Rapid")
             {
                 Position = new Vector2(posx, posy),
                 w = 80f,
@@ -86,7 +86,7 @@ namespace Definitely_not_Star_Wars
         }
         public void AddShield(float posx, float posy)
         {
-            Game1._sprites.Add(new Shield(shield, shield, "Shield")
+            GameManager._sprites.Add(new Shield(shield, shield, "Shield")
             {
                 Position = new Vector2(posx, posy),
                 w = 80f,
@@ -97,7 +97,7 @@ namespace Definitely_not_Star_Wars
         }
         public void AddTriple(float posx, float posy)
         {
-            Game1._sprites.Add(new Triple(triple, triple, "Triple")
+            GameManager._sprites.Add(new Triple(triple, triple, "Triple")
             {
                 Position = new Vector2(posx, posy),
                 w = 80f,
@@ -108,7 +108,7 @@ namespace Definitely_not_Star_Wars
         }
         public void AddDeathStar(float posx, float posy, int hp)
         {
-            Game1._sprites.Add( ds = new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, hp)
+            GameManager._sprites.Add(ds = new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, hp)
             {
                 Position = new Vector2(posx, posy),
                 w = 150f,
@@ -120,56 +120,56 @@ namespace Definitely_not_Star_Wars
 
         public void AddPlasmaStorm(float posx, float posy)
         {
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true,true,false,false)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, true, false, false)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, false, false)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, false, false)
             {
                 Position = new Vector2(posx, posy + 10),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, false, true, false)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, false, true, false)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, true, false, true)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, true, false, true)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, false, true)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, false, true)
             {
-                Position = new Vector2(posx , posy - 10),
+                Position = new Vector2(posx, posy - 10),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, false, true, true)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", true, false, true, true)
             {
-                Position = new Vector2(posx, posy ),
+                Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, true, false, false)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, true, false, false)
             {
                 Position = new Vector2(posx - 10, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, true, false)
+            GameManager._sprites.Add(new EPlasma(plasma, plasma, "EPlasma", false, false, true, false)
             {
                 Position = new Vector2(posx + 10, posy),
                 w = 20f,
@@ -180,73 +180,7 @@ namespace Definitely_not_Star_Wars
 
         public void Update(int time, GameTime gameTime)
         {
-            /* 
 
-
-             if (time == 5 && !spawned)
-             {
-                 AddEnemyAbNormal(50,200);
-                 AddEnemyAbNormal(280, 200);
-                 AddEnemyAbNormal(500, 200);
-                 AddEnemyAbNormal(700, 200);
-                 AddEnemyAbNormal(30, 0);
-                 AddEnemyAbNormal(250, 0);
-                 AddEnemyAbNormal(420, 0);
-                 AddEnemyAbNormal(720, 0);
-                 spawnCD = 1f;
-
-             }
-            
-
-             if (time == 10 && !spawned)
-             {
-
-                 AddPlasmaStorm(300, 500);
-                 AddPlasmaStorm(500, 500);
-                 AddPlasmaStorm(400, 500);
-                 spawnCD = 1f;
-             }
-
-             if (time == 11 && !spawned)
-             {
-                 AddEnemyAbNormal(50, 200);
-                 AddEnemyAbNormal(280, 200);
-                 AddEnemyAbNormal(500, 200);
-                 AddEnemyAbNormal(700, 200);
-                 AddEnemyAbNormal(30, 0);
-                 AddEnemyAbNormal(250, 0);
-                 AddEnemyAbNormal(420, 0);
-                 AddEnemyAbNormal(720, 0);
-                 spawnCD = 1f;
-
-             }
-             if (time == 15 && !spawned)
-             {
-                 AddEnemyAbNormal(50, 200);
-                 AddEnemyAbNormal(280, 200);
-                 AddEnemyAbNormal(500, 200);
-                 AddEnemyAbNormal(700, 200);
-                 AddEnemyAbNormal(30, 0);
-                 AddEnemyAbNormal(250, 0);
-                 AddEnemyAbNormal(420, 0);
-                 AddEnemyAbNormal(720, 0);
-                 spawnCD = 1f;
-
-             }
-             if (time == 20 && !spawned)
-             {
-
-                 AddPlasmaStorm(300,500);
-                 AddPlasmaStorm(500, 500);
-                 AddPlasmaStorm(400, 500);
-                 spawnCD = 1f;
-
-             }
-
-
-
-
-             */
             if (spawnCD > 0)
             {
                 spawned = true;
@@ -268,12 +202,12 @@ namespace Definitely_not_Star_Wars
             if (time == 1 && !spawned)
             {
 
-                AddEnemyNormal(100,100);
+                AddEnemyNormal(100, 100);
                 AddEnemyNormal(300, 100);
                 AddEnemyNormal(500, 100);
                 AddEnemyNormal(700, 100);
                 AddShield(400, 300);
-               
+
 
                 spawnCD = 1f;
 
@@ -283,7 +217,7 @@ namespace Definitely_not_Star_Wars
 
                 AddEnemyAbNormal(200, 100);
                 AddEnemyNormal(400, 100);
-                AddEnemyAbNormal(600,100);
+                AddEnemyAbNormal(600, 100);
 
                 spawnCD = 1f;
 
@@ -296,7 +230,7 @@ namespace Definitely_not_Star_Wars
                 AddEnemyNormal(700, 100);
                 AddPlasmaStorm(200, 500);
                 spawnCD = 1f;
-                
+
             }
             if (time == 6 && !spawned)
             {
@@ -328,7 +262,7 @@ namespace Definitely_not_Star_Wars
             if (time == 12 && !spawned)
             {
                 AddEnemyAbNormal(400, 100);
-                
+
                 spawnCD = 1f;
             }
             if (time == 13 && !spawned)
@@ -352,8 +286,8 @@ namespace Definitely_not_Star_Wars
                 AddEnemyNormal(300, 100);
                 AddEnemyNormal(500, 100);
                 AddEnemyNormal(700, 100);
-                AddPlasmaStorm(400,500);
-             
+                AddPlasmaStorm(400, 500);
+
                 spawnCD = 1f;
             }
             if (time == 17 && !spawned)
@@ -431,36 +365,37 @@ namespace Definitely_not_Star_Wars
             {
                 AddEnemyAbNormal(100, 100);
                 AddEnemyAbNormal(700, 100);
-                spawnCD = 1f;  
+                spawnCD = 1f;
 
             }
             if (time == 31 && !spawned)
             {
                 AddPlasmaStorm(200, 500);
                 AddPlasmaStorm(600, 500);
-                AddDeathStar(400, 100,110);
+                AddDeathStar(400, 100, 110);
                 spawnCD = 1f;
             }
 
-            if (DeathStar.isDead) {
+            if (DeathStar.isDead)
+            {
                 float temptime = time + 3;
                 temptime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                Game1._sprites.RemoveAll(x => x.Name == "EBullet");
-                Game1._sprites.RemoveAll(x => x.Name == "DeathStar");
-                Game1._sprites.RemoveAll(x => x.Name == "Tie-Fighter");
+                GameManager._sprites.RemoveAll(x => x.Name == "EBullet");
+                GameManager._sprites.RemoveAll(x => x.Name == "DeathStar");
+                GameManager._sprites.RemoveAll(x => x.Name == "Tie-Fighter");
                 if (Convert.ToInt32(temptime) == 3)
                 {
 
-                    Game1._sprites.RemoveAll(x => x.Name == "EPlasma");
-                  
+                    GameManager._sprites.RemoveAll(x => x.Name == "EPlasma");
+
 
                 }
-                
-                
+
+
             }
         }
 
-        
+
 
 
     }

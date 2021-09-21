@@ -54,11 +54,11 @@ namespace Definitely_not_Star_Wars
                 }
                 if (this.Position.Y > 1000 || this.Position.Y < 1)
                 {
-                    Game1._sprites.Remove(this);
+                    GameManager._sprites.Remove(this);
                 }
                 if (this.Position.X > 700 || this.Position.X < 1 )
                 {
-                    Game1._sprites.Remove(this);
+                    GameManager._sprites.Remove(this);
                 }
 
             }

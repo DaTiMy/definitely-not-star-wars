@@ -28,7 +28,7 @@ namespace Definitely_not_Star_Wars
                 }
                 if (this.Position.Y < 1)
                 {
-                    Game1._sprites.Remove(this);
+                    GameManager._sprites.Remove(this);
                 }
                 
             }

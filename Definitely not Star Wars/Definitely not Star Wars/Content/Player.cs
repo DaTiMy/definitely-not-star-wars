@@ -21,7 +21,7 @@ namespace Definitely_not_Star_Wars
             HP = 3;
             shieldedP = shielded;
             shootSFX = seffect;
-            
+
         }
 
 
@@ -40,7 +40,8 @@ namespace Definitely_not_Star_Wars
         bool triple = false;
         bool shield = false;
         bool rapid = false;
-        public bool TripleActive {
+        public bool TripleActive
+        {
             get { return triple; }
             set { triple = value; }
         }
@@ -60,8 +61,9 @@ namespace Definitely_not_Star_Wars
         public int HP
         {
             get { return hp; }
-            set {
-                if (Convert.ToInt32(value) >= 0) { hp = value;  }
+            set
+            {
+                if (Convert.ToInt32(value) >= 0) { hp = value; }
             }
         }
         public bool Immunity
@@ -69,8 +71,9 @@ namespace Definitely_not_Star_Wars
             get; set;
         }
 
-        public bool Fire { 
-        get{ return _fire; }
+        public bool Fire
+        {
+            get { return _fire; }
             set { _fire = value; }
         }
 
@@ -85,12 +88,13 @@ namespace Definitely_not_Star_Wars
                     immunityTime = 0;
                 }
             }
-            else {
+            else
+            {
                 dmgCounter = 0;
                 Immunity = false;
 
             }
-            
+
             if (tripleTime > 0)
             {
                 TripleActive = true;
@@ -98,7 +102,8 @@ namespace Definitely_not_Star_Wars
                 if (tripleTime < 0)
                 { tripleTime = 0; }
             }
-            else {
+            else
+            {
                 TripleActive = false;
             }
 
@@ -150,7 +155,7 @@ namespace Definitely_not_Star_Wars
                             if (dmgCounter > 0 && dmgCounter < 2)
                             {
                                 immunityTime = 2f;
-                                Game1._sprites.Remove(sprite);
+                                GameManager._sprites.Remove(sprite);
                                 if (ShieldActive)
                                 {
                                     ShieldActive = false;
@@ -159,14 +164,14 @@ namespace Definitely_not_Star_Wars
                                 {
 
                                     HP -= 1;
-                                    if (Game1._hp.Count != 0)
-                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                                    if (GameManager._hp.Count != 0)
+                                        GameManager._hp.RemoveAt(GameManager._hp.Count - 1);
                                 }
-                                
+
                             }
                         }
-                        
-                        
+
+
 
 
                     }
@@ -178,7 +183,7 @@ namespace Definitely_not_Star_Wars
                             if (dmgCounter > 1)
                             {
                                 immunityTime = 2f;
-                                Game1._sprites.Remove(sprite);
+                                GameManager._sprites.Remove(sprite);
                                 if (ShieldActive)
                                 {
                                     ShieldActive = false;
@@ -187,8 +192,8 @@ namespace Definitely_not_Star_Wars
                                 {
 
                                     HP -= 1;
-                                    if (Game1._hp.Count != 0)
-                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                                    if (GameManager._hp.Count != 0)
+                                        GameManager._hp.RemoveAt(GameManager._hp.Count - 1);
                                 }
                                 dmgCounter = 0;
                             }
@@ -205,7 +210,7 @@ namespace Definitely_not_Star_Wars
                         {
                             if (dmgCounter > 0 && dmgCounter < 2)
                             {
-                                Game1._sprites.Remove(sprite);
+                                GameManager._sprites.Remove(sprite);
                                 immunityTime = 2f;
 
                                 if (ShieldActive)
@@ -216,15 +221,15 @@ namespace Definitely_not_Star_Wars
                                 {
 
                                     HP -= 1;
-                                    if (Game1._hp.Count != 0)
-                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                                    if (GameManager._hp.Count != 0)
+                                        GameManager._hp.RemoveAt(GameManager._hp.Count - 1);
 
 
                                 }
-                               
+
 
                             }
-                            
+
                         }
 
 
@@ -236,7 +241,7 @@ namespace Definitely_not_Star_Wars
                         {
                             if (dmgCounter > 0 && dmgCounter < 2)
                             {
-                                Game1._sprites.Remove(sprite);
+                                GameManager._sprites.Remove(sprite);
                                 immunityTime = 2f;
 
                                 if (ShieldActive)
@@ -247,8 +252,8 @@ namespace Definitely_not_Star_Wars
                                 {
 
                                     HP -= 1;
-                                    if (Game1._hp.Count != 0)
-                                        Game1._hp.RemoveAt(Game1._hp.Count - 1);
+                                    if (GameManager._hp.Count != 0)
+                                        GameManager._hp.RemoveAt(GameManager._hp.Count - 1);
 
 
 
@@ -256,7 +261,7 @@ namespace Definitely_not_Star_Wars
 
 
                                 }
-                               
+
 
                             }
 
@@ -269,21 +274,21 @@ namespace Definitely_not_Star_Wars
                     {
                         tripleTime = Triple.tripletime;
 
-                        Game1._sprites.Remove(sprite);
-                        
+                        GameManager._sprites.Remove(sprite);
+
                     }
                     if (sprite.Name == "Shield")
                     {
                         ShieldActive = true;
 
-                        Game1._sprites.Remove(sprite);
+                        GameManager._sprites.Remove(sprite);
 
                     }
                     if (sprite.Name == "Rapid")
                     {
                         rapidTime = Rapid.rapidtime;
 
-                        Game1._sprites.Remove(sprite);
+                        GameManager._sprites.Remove(sprite);
 
                     }
 
@@ -291,73 +296,73 @@ namespace Definitely_not_Star_Wars
 
 
             }
-          
-        
+
+
             Position += Velocity;
             Velocity = Vector2.Zero;
-           
+
 
         }
 
         private void GameOver()
         {
             moveAble = false;
-            AddPlasmaStorm(this.Position.X/2,this.Position.Y/2);
-            Game1.gameOver = true;
+            AddPlasmaStorm(this.Position.X / 2, this.Position.Y / 2);
+            GameManager.gameOver = true;
 
         }
         public void AddPlasmaStorm(float posx, float posy)
         {
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, true, false, false)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, false, false, false)
             {
                 Position = new Vector2(posx, posy + 10),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, false, true, false)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, true, false, true)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, true, false, true)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, false, true)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, false, false, true)
             {
                 Position = new Vector2(posx, posy - 10),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", true, false, true, true)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", true, false, true, true)
             {
                 Position = new Vector2(posx, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, true, false, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, true, false, false)
             {
                 Position = new Vector2(posx - 10, posy),
                 w = 20f,
                 h = 20f,
 
             });
-            Game1._sprites.Add(new EPlasma(Game1.plasma, Game1.plasma, "EPlasma", false, false, true, false)
+            GameManager._sprites.Add(new EPlasma(GameManager.plasma, GameManager.plasma, "EPlasma", false, false, true, false)
             {
                 Position = new Vector2(posx + 10, posy),
                 w = 20f,
@@ -373,7 +378,7 @@ namespace Definitely_not_Star_Wars
             { Position.X = -60; }
             if (Position.X < -60)
             { Position.X = 780; }
-            
+
             if (Keyboard.GetState().IsKeyDown(Input.Left))
             {
                 Velocity.X = -Speed;
@@ -398,25 +403,26 @@ namespace Definitely_not_Star_Wars
 
                 if (Position.Y > 900)
                 { this.Velocity.Y = 0; }
-                else {
+                else
+                {
                     Velocity.Y = Speed;
                 }
             }
-            
-                if (time  == 0)
-               {
+
+            if (time == 0)
+            {
 
                 if (Keyboard.GetState().IsKeyDown(Input.Fire))
                 {
                     shootSFX.Play();
-                    Game1._sprites.Add(new PBullet(Game1.pbulletImg, Game1.pbulletImg, "PBullet")
+                    GameManager._sprites.Add(new PBullet(GameManager.pbulletImg, GameManager.pbulletImg, "PBullet")
                     {
                         Position = new Vector2(this.Position.X - 27, this.Position.Y - 15),
                         w = 60f,
                         h = 50f
 
                     });
-                    Game1._sprites.Add(new PBullet(Game1.pbulletImg, Game1.pbulletImg, "PBullet")
+                    GameManager._sprites.Add(new PBullet(GameManager.pbulletImg, GameManager.pbulletImg, "PBullet")
                     {
                         Position = new Vector2(this.Position.X + 47, this.Position.Y - 15),
                         w = 60f,
@@ -425,9 +431,9 @@ namespace Definitely_not_Star_Wars
                     });
                     if (TripleActive)
                     {
-                        Game1._sprites.Add(new PBullet(Game1.pbulletImg, Game1.pbulletImg, "PBullet")
+                        GameManager._sprites.Add(new PBullet(GameManager.pbulletImg, GameManager.pbulletImg, "PBullet")
                         {
-                            Position = new Vector2(this.Position.X+10, this.Position.Y - 45),
+                            Position = new Vector2(this.Position.X + 10, this.Position.Y - 45),
                             w = 60f,
                             h = 50f
 
@@ -438,13 +444,14 @@ namespace Definitely_not_Star_Wars
                     {
                         time = 0.1f;
                     }
-                    else {
+                    else
+                    {
                         time = 0.3f;
                     }
-                    
+
                 }
             }
-            
+
 
 
 
@@ -454,9 +461,9 @@ namespace Definitely_not_Star_Wars
 
         public void MoveOutOfScreen()
         {
-            
-                Velocity.Y = -Speed;
-            
+
+            Velocity.Y = -Speed;
+
 
         }
         public void FireRateCD()
