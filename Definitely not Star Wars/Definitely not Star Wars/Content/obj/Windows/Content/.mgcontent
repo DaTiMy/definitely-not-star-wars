@@ -21,9 +21,11 @@
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/ShieldPowerup.png</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/TieFighter.png</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/TripleshotPowerUp.png</File>
+    <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/win.mp3</File>
     <File>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/X-WingShielded2.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

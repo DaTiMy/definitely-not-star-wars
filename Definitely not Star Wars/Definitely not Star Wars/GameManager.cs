@@ -19,6 +19,7 @@ namespace Definitely_not_Star_Wars
         SpriteBatch spriteBatch;
 
         Song bgm;
+        Song win;
 
         public static bool gameOver = false;
         bool ready = false;
@@ -113,6 +114,7 @@ namespace Definitely_not_Star_Wars
 
 
             bgm = Content.Load<Song>("bgm");
+            win = Content.Load<Song>("win");
             #endregion
             level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX, plasma);
 
@@ -228,7 +230,11 @@ namespace Definitely_not_Star_Wars
                 currentTime = 0;
                 playerObj.MoveOutOfScreen();
                 temptime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+                if (Convert.ToInt32(temptime) == 1)
+                {
+                    MediaPlayer.Stop();
+                    MediaPlayer.Play(win);
+                }
                 if (Convert.ToInt32(temptime) == 3)
                 {
                     temptime = 3;
@@ -239,6 +245,13 @@ namespace Definitely_not_Star_Wars
             }
             if (gameOver && Keyboard.GetState().IsKeyDown(Keys.Space) && ready || DeathStar.isDead && Keyboard.GetState().IsKeyDown(Keys.Space) && ready)
             {
+                bool temp = false;
+                if (!temp)
+                {
+                    MediaPlayer.Stop();
+                    MediaPlayer.Play(bgm);
+                    temp = true;
+                }
                 ready = false;
                 temptime = 0;
                 DeathStar.isDead = false;
