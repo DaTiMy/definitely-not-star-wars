@@ -119,7 +119,6 @@ namespace Definitely_not_Star_Wars
                 RapidActive = false;
             }
 
-
             if (moveAble)
             { Move(); }
 
@@ -461,9 +460,9 @@ namespace Definitely_not_Star_Wars
 
         public void MoveOutOfScreen()
         {
-
+            moveAble = false;
             Velocity.Y = -Speed;
-
+           
 
         }
         public void FireRateCD()
