@@ -214,17 +214,31 @@ namespace Definitely_not_Star_Wars
                 level1 = null;
                 
                 temptime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                Console.WriteLine(temptime);
+           
                 if (Convert.ToInt32(temptime) == 3) {
                     temptime = 3;
                     ready = true;
                 }
             }
+            if (DeathStar.isDead)
+            {
+                currentTime = 0;
+                playerObj.MoveOutOfScreen();
+                temptime += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (gameOver && Keyboard.GetState().IsKeyDown(Keys.Space) && ready)
+                if (Convert.ToInt32(temptime) == 3)
+                {
+                    temptime = 3;
+                    ready = true;
+                }
+
+
+            }
+            if (gameOver && Keyboard.GetState().IsKeyDown(Keys.Space) && ready || DeathStar.isDead && Keyboard.GetState().IsKeyDown(Keys.Space) && ready)
             {
                 ready = false;
                 temptime = 0;
+                DeathStar.isDead = false;
                 level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX, plasma);
 
                 playerObj = new Player(playerImg, playerShielded, "Player", shootSFX)
@@ -295,6 +309,11 @@ namespace Definitely_not_Star_Wars
             if (gameOver)
             {
                 spriteBatch.DrawString(font, "Game over", new Vector2(windowW/2-155, 100), Color.White);
+                spriteBatch.DrawString(font, @"Press SPACE to restart!", new Vector2(windowW / 2 - 310, 300), Color.White);
+            }
+            if (DeathStar.isDead)
+            {
+                spriteBatch.DrawString(font, "victory!", new Vector2(windowW / 2 - 155, 100), Color.White);
                 spriteBatch.DrawString(font, @"Press SPACE to restart!", new Vector2(windowW / 2 - 310, 300), Color.White);
             }
           

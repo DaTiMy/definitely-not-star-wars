@@ -13,7 +13,7 @@ namespace Definitely_not_Star_Wars
     {
         double time = 2f;
         double plasmatime = 5f;
-
+        public static bool isDead = false;
         SoundEffect bossHitSFX;
 
 
@@ -22,6 +22,7 @@ namespace Definitely_not_Star_Wars
 
         bool direction = true;
 
+      
 
         public int HP
         {
@@ -35,6 +36,7 @@ namespace Definitely_not_Star_Wars
             bossHitSFX = _bossHitSFX;
             HP = _hp;
             total = _hp;
+            isDead = false;
 
         }
         public override void Update(GameTime gameTime, List<Sprite> sprites)
@@ -105,8 +107,8 @@ namespace Definitely_not_Star_Wars
                             {
                                 Game1.bossExplodeSFX.Play();
                             }
-                            
-                            Game1._sprites.Remove(this);
+                            isDead = true;
+                          
                         }
                         
                     }
@@ -124,6 +126,7 @@ namespace Definitely_not_Star_Wars
 
                 if (this.Position.Y > 900)
                 {
+
                     Game1._sprites.Remove(this);
                 }
 
@@ -168,6 +171,13 @@ namespace Definitely_not_Star_Wars
           
             
 
+        }
+
+
+        public void Dead()
+        { 
+        
+            
         }
 
         public void AddPlasmaStorm(float posx, float posy)

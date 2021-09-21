@@ -21,6 +21,8 @@ namespace Definitely_not_Star_Wars
         Texture2D shield;
         Texture2D rapid;
 
+        DeathStar ds;
+
         bool spawned = false;
         double spawnCD = 0f;
 
@@ -106,7 +108,7 @@ namespace Definitely_not_Star_Wars
         }
         public void AddDeathStar(float posx, float posy, int hp)
         {
-            Game1._sprites.Add(new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, hp)
+            Game1._sprites.Add( ds = new DeathStar(deathStarImg, deathStarImg, "DeathStar", bossHitSFX, hp)
             {
                 Position = new Vector2(posx, posy),
                 w = 150f,
@@ -438,6 +440,23 @@ namespace Definitely_not_Star_Wars
                 AddPlasmaStorm(600, 500);
                 AddDeathStar(400, 100,110);
                 spawnCD = 1f;
+            }
+
+            if (DeathStar.isDead) {
+                float temptime = time + 3;
+                temptime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                Game1._sprites.RemoveAll(x => x.Name == "EBullet");
+                Game1._sprites.RemoveAll(x => x.Name == "DeathStar");
+                Game1._sprites.RemoveAll(x => x.Name == "Tie-Fighter");
+                if (Convert.ToInt32(temptime) == 3)
+                {
+
+                    Game1._sprites.RemoveAll(x => x.Name == "EPlasma");
+                  
+
+                }
+                
+                
             }
         }
 

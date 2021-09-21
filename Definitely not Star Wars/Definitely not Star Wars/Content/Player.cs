@@ -451,6 +451,14 @@ namespace Definitely_not_Star_Wars
 
 
         }
+
+        public void MoveOutOfScreen()
+        {
+            
+                Velocity.Y = -Speed;
+            
+
+        }
         public void FireRateCD()
         {
             Fire = false;
