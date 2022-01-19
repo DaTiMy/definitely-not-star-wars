@@ -83,6 +83,7 @@ namespace Definitely_not_Star_Wars
                         tieexp.Play();
                         GameManager._sprites.Remove(sprite);
                         GameManager._sprites.Remove(this);
+                        GameManager.score += 50;
                     }
 
                     if (sprite.Name == "Player")
@@ -93,6 +94,7 @@ namespace Definitely_not_Star_Wars
                             {
                                 tieexp.Play();
                                 immunityTime = 2f;
+                                GameManager.score += 50;
                             }
                         }
 

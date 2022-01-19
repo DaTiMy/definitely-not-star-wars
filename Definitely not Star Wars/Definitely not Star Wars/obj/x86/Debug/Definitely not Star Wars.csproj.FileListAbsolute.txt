@@ -37,9 +37,11 @@ C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\bg.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\plasma.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\BossExplode.xnb
-C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csprojAssemblyReference.cache
-C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csproj.CopyComplete
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\Menu.xnb
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\Starjedi.ttf
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\win.wma
 C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Content\win.xnb
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csproj.AssemblyReference.cache
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\bin\Windows\x86\Debug\Definitely not Star Wars.exe.config
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csproj.SuggestedBindingRedirects.cache
+C:\Users\stud\Documents\GitHub\definitely-not-star-wars\Definitely not Star Wars\Definitely not Star Wars\obj\x86\Debug\Definitely not Star Wars.csproj.CopyComplete

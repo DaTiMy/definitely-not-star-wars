@@ -31,6 +31,9 @@ namespace Definitely_not_Star_Wars
         Texture2D background;
         public static Texture2D pbulletImg, ebulletImg, plasma;
 
+        public static int score = 0;
+        public static bool scoreSet = false;
+
         Level level1;
         Texture2D tieFighterImg;
         Texture2D deathStarImg;
@@ -256,7 +259,7 @@ namespace Definitely_not_Star_Wars
                 temptime = 0;
                 DeathStar.isDead = false;
                 level1 = new Level(tieFighterImg, triple, shield, rapid, tieExp, deathStarImg, bosshitSFX, plasma);
-
+                score = 0;
                 playerObj = new Player(playerImg, playerShielded, "Player", shootSFX)
                 {
                     Input = new Input()
@@ -324,13 +327,30 @@ namespace Definitely_not_Star_Wars
             spriteBatch.Draw(background, new Rectangle(0, 0, windowW, windowH), Color.White);
             if (gameOver)
             {
+                if (!scoreSet)
+                    score -= (int)gameTime.TotalGameTime.TotalSeconds * 5;
+                if (score < 0)
+                    score = 0;
                 spriteBatch.DrawString(font, "Game over", new Vector2(windowW / 2 - 155, 100), Color.White);
                 spriteBatch.DrawString(font, @"Press SPACE to restart!", new Vector2(windowW / 2 - 310, 300), Color.White);
+                spriteBatch.DrawString(font, score.ToString(), new Vector2(windowW / 2 - 50, 500), Color.White);
+                
+                scoreSet = true;
+
             }
             if (DeathStar.isDead)
             {
+                if (!scoreSet)
+                    score -= (int)gameTime.TotalGameTime.TotalSeconds * 5;
                 spriteBatch.DrawString(font, "victory!", new Vector2(windowW / 2 - 155, 100), Color.White);
                 spriteBatch.DrawString(font, @"Press SPACE to restart!", new Vector2(windowW / 2 - 310, 300), Color.White);
+                spriteBatch.DrawString(font, score.ToString(), new Vector2(windowW / 2 - 50, 500), Color.White);
+
+                if (score < 0)
+                    score = 0;
+                scoreSet = true;
+
+
             }
 
             foreach (var sprite in _sprites)
@@ -350,7 +370,8 @@ namespace Definitely_not_Star_Wars
             {
                 sprite.Draw(spriteBatch);
             }
-
+            if(!gameOver || !DeathStar.isDead)
+                spriteBatch.DrawString(font, score.ToString(),new Vector2(windowW-130,10), Color.White);
 
 
             spriteBatch.End();

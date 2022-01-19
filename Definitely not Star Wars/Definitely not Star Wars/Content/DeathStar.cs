@@ -107,6 +107,7 @@ namespace Definitely_not_Star_Wars
                             if (HP == 0)
                             {
                                 GameManager.bossExplodeSFX.Play();
+                                GameManager.score += 1000;
                             }
                             isDead = true;
 

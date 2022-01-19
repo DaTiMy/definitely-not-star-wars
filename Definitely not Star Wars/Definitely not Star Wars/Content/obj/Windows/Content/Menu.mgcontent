@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/Menu.spritefont</SourceFile>
-  <SourceTime>2021-09-20T21:45:42.8998814+02:00</SourceTime>
+  <SourceTime>2021-09-21T09:28:13.9713042+02:00</SourceTime>
   <DestFile>C:/Users/stud/Documents/GitHub/definitely-not-star-wars/Definitely not Star Wars/Definitely not Star Wars/Content/bin/Windows/Content/Menu.xnb</DestFile>
-  <DestTime>2021-09-20T21:45:46.7116744+02:00</DestTime>
+  <DestTime>2021-09-25T17:00:34.5814975+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
